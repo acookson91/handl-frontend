@@ -43,3 +43,18 @@ COURIER:
 - list all possible delivery requests
   - select a delivery
   - confirm selection
+
+-----------------------
+Setup
+`node -v` if no version number, run `brew install node`
+`npm init`
+`npm install bower -g --save-dev`
+`bower init`
+`bower install angular --save`
+
+To run after cloning:
+`bower install` 
+
+`npm install -g protractor` - ?
+
+
