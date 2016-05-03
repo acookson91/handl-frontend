@@ -1,0 +1,19 @@
+{
+  "name": "handl-frontend",
+  "version": "1.0.0",
+  "description": "Find out how couriers work – head office? Parcel delivery – cut out the middle man.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acookson91/handl-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acookson91/handl-frontend/issues"
+  },
+  "homepage": "https://github.com/acookson91/handl-frontend#readme"
+}

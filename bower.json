@@ -1,0 +1,20 @@
+{
+  "name": "handl-frontend",
+  "description": "Find out how couriers work – head office? Parcel delivery – cut out the middle man.",
+  "main": "index.js",
+  "authors": [
+    "Andrew Cookson <acookson91@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/acookson91/handl-frontend",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5"
+  }
+}
