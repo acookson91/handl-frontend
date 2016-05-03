@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/acookson91/handl-frontend/issues"
   },
-  "homepage": "https://github.com/acookson91/handl-frontend#readme"
+  "homepage": "https://github.com/acookson91/handl-frontend#readme",
+  "devDependencies": {
+    "protractor": "^3.3.0"
+  }
 }
