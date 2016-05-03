@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="js/handl.js"></script>
+    <script src="js/controllers/mainHandlr.js"></script>
+
 
     <title>Handl App</title>
+    <base href="/">
   </head>
-  <body ng-controller='mainHandlr as handlr'>
-    <!-- <div ng-repeat='delivery in handlr.deliveries'>
-    <p> {{ delivery.name }}</p>
-  </div> -->
+  <body>
+    <div ng-view></div>
+
   </body>
 </html>
