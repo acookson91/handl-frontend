@@ -1,9 +1,8 @@
-handlApp.controller('mainHandlr', ["$scope", "$location", function($scope, $location){
-  $scope.deliveries = {};
+handlApp.controller('mainHandlr', ["$scope", "$location", "deliveryFactory", function($scope, $location, deliveryFactory){
+  $scope.deliveries = deliveryFactory.deliveries;
 
   $scope.addDeliveryDetails = function(delivery){
-    $scope.deliveries = angular.copy(delivery);
-    $location.path('/confirm-delivery');
+    deliveryFactory.create(delivery)
     console.log($scope.deliveries);
   };
 }]);
