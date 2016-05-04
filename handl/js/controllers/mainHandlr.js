@@ -1,8 +1,17 @@
-handlApp.controller('mainHandlr', ["$scope", "$location", "deliveryFactory", function($scope, $location, deliveryFactory){
-  $scope.deliveries = deliveryFactory.deliveries;
+handlApp.controller('mainHandlr', ["$scope",function($scope){
+  var self = this;
 
-  $scope.addDeliveryDetails = function(delivery){
-    deliveryFactory.create(delivery)
-    console.log($scope.deliveries);
+  self.deliveries2 = {};
+
+  $scope.deliveries = {};
+
+  self.addDeliveryDetails = function(delivery){
+    console.log(delivery);
+    $scope.deliveries = angular.copy(delivery);
+    console.log($scope.deliveries.rPCode);
+
+    self.deliveries2 = delivery;
   };
+
+
 }]);
