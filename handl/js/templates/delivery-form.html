@@ -1,1 +1,16 @@
-this is a form
+<div ng-controller="mainHandlr as ctrl">
+
+
+<form id='delivery-form' >
+  Name:<input id="collector-name-input" type="text" ng-model="delivery.cName"/>
+  Address1:<input id="collection-address1" type="text" ng-model="delivery.cAdd1"/>
+  Address2:<input id="collection-address2" type="text" ng-model="delivery.cAdd2"/>
+  Postcode:<input id="collection-postcode" type="text" ng-model="delivery.cPCode"/>
+
+  Name:<input id="recipient-name-input" type="text" ng-model="delivery.rName"/>
+  Address1:<input id="recipient-address1" type="text" ng-model="delivery.rAdd1"/>
+  Address2:<input id="recipient-address2" type="text" ng-model="delivery.rAdd2"/>
+  Postcode:<input id="recipient-postcode" type="text" ng-model="delivery.rPCode"/>
+  <button id="submit" ng-click="addDeliveryDetails(delivery)">Submit</button>
+</form>
+</div>

@@ -1,9 +1,9 @@
-handlApp.controller('mainHandlr', [function(){
-  var self = this;
+handlApp.controller('mainHandlr', ["$scope",function($scope){
+  $scope.deliveries = {};
 
-  this.deliveries = [
-    { name: 'bob' },
-    { name: 'tina' }
-  ];
+  $scope.addDeliveryDetails = function(delivery){
+    $scope.deliveries = angular.copy(delivery);
+  };
+
 
 }]);

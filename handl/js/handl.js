@@ -2,9 +2,13 @@ var handlApp = angular.module("handlApp", ["ngRoute","ngResource"]);
 
 handlApp.config(function($routeProvider,$locationProvider){
   $locationProvider.html5Mode(true);
-  $routeProvider
+  return $routeProvider
     .when("/", {
-      templateUrl: "/templates/home.html",
+      templateUrl: "/js/templates/home.html",
       controller: 'mainHandlr'
     })
-})
+    .when("/delivery-form", {
+      templateUrl: "/js/templates/delivery-form.html",
+      controller: "mainHandlr"
+    });
+});
