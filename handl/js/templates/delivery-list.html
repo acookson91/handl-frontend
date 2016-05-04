@@ -1,4 +1,8 @@
 <h1>Deliveries</h1>
 <div ng-repeat="delivery in deliveries">
-{{delivery.sender_name}}
+  <a href="/deliveries/{{delivery.id}}">
+    {{delivery.sender_name}}:
+    {{delivery.pickup_postcode}} -
+    {{delivery.dropoff_postcode}}
+  </a>
 </div>

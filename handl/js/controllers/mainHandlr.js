@@ -1,8 +1,8 @@
-handlApp.controller('mainHandlr', ["$scope", "$location", "deliveryFactory", function($scope, $location, deliveryFactory){
-  $scope.deliveries = deliveryFactory.deliveries;
+handlApp.controller('mainHandlr', ["$scope", "$location", "deliveryListService", function($scope, $location, deliveryListService){
+  $scope.deliveries = deliveryListService.deliveryDetails;
 
   $scope.getDeliveryDetails = function(delivery){
-    deliveryFactory.getAll()
+    deliveryListService.getAll();
     console.log($scope.deliveries);
   };
 

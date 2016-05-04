@@ -1,6 +1,6 @@
 handlApp.factory('deliveryFactory', ['$http', function($http){
   var self = this;
-  var deliveryDetails = []
+  var deliveryDetails = [];
 
 
   self.getAll = function() {
