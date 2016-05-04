@@ -18,5 +18,10 @@ handlApp.config(function($routeProvider,$locationProvider){
     .when("/delivery-list", {
       templateUrl: "/js/templates/delivery-list.html",
       controller: "mainHandlr"
+    })
+    .when("/deliveries", {
+      templateUrl: "/js/templates/individual-delivery.html",
+      controller: "mainHandlr",
+      as: 'app'
     });
 });

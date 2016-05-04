@@ -1,4 +1,6 @@
 describe('handl',function(){
+  var list = $$('#delivery-link');
+
   it('has a title', function(){
     browser.get('/');
     expect(browser.getTitle()).toEqual('Handl App');
@@ -25,5 +27,17 @@ describe('handl',function(){
     expect($("#confirmation").getText()).toEqual("Please confirm your delivery");
   });
 
+  it('displays a list of delivery requests', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    expect(list.first().getText()).toContain('James');
+  });
 
+  it('displays full information for selected delivery request', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    list.first().click();
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/deliveries/1');
+    expect()
+  });
 });

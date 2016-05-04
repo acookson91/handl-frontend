@@ -1,6 +1,6 @@
 <h1>Deliveries</h1>
-<div ng-repeat="delivery in deliveries">
-  <a href="/deliveries/{{delivery.id}}">
+<div id='deliveries' ng-repeat="delivery in deliveries">
+  <a id='delivery-link' ng-click='pullDeliveryDetails(delivery.id)' href="/deliveries">
     {{delivery.sender_name}}:
     {{delivery.pickup_postcode}} -
     {{delivery.dropoff_postcode}}
