@@ -14,5 +14,9 @@ handlApp.config(function($routeProvider,$locationProvider){
     .when("/confirm-delivery", {
       templateUrl: "/js/templates/confirm-delivery.html",
       controller: "mainHandlr"
+    })
+    .when("/delivery-list", {
+      templateUrl: "/js/templates/delivery-list.html",
+      controller: "mainHandlr"
     });
 });
