@@ -1,13 +1,16 @@
 describe('mainHandlr', function(){
   beforeEach(module('handlApp'));
 
-  var ctrl;
+  var scope, ctrl;
 
-  beforeEach(inject(function($controller){
-    ctrl = $controller('mainHandlr');
+  beforeEach(inject(function($controller, $rootScope){
+    scope = $rootScope.$new();
+    ctrl = $controller('mainHandlr', {$scope: scope});
   }));
 
-  it('shows a delivery name', function(){
-    expect(ctrl.deliveries[0].name).toEqual('bob');
+  it('adds to to the deliveries array', function(){
+    scope.addDeliveryDetails({Name: "Sachin"});
+    expect(scope.deliveries[0]).toEqual({Name: "Sachin"});
   });
+
 });

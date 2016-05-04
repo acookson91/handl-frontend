@@ -8,10 +8,12 @@ handlApp.factory('deliveryFactory', ['$http', function($http){
     });
   };
 
+
+
   self.deliveryDetails.create = function(delivery) {
     return $http.post('http://localhost:3000/deliveries.json', delivery).success(function(data){
-      console.log(data)
-      self.deliveryDetails.getAll()
+      console.log(data);
+      self.deliveryDetails.getAll();
     });
   };
 

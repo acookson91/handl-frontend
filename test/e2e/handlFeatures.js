@@ -10,6 +10,12 @@ describe('handl',function(){
     expect($("#delivery-form").isPresent()).toBeTruthy();
   });
 
+  it('page does not have confirmation on it', function(){
+    browser.get('/');
+    $("#new-delivery").click();
+    expect($("#confirmation").isPresent()).toBeFalsy();
+  });
+
   it('has a confirm delivery page that displays addresses', function(){
     browser.get('/');
     $("#new-delivery").click();
@@ -22,8 +28,6 @@ describe('handl',function(){
     $("#recipient-address2").sendKeys("London");
     $("#recipient-postcode").sendKeys("E1 7jb");
     $("#submit").click();
-    expect($("#confirmation").getText()).toEqual("Please confirm your delivery");
+    expect($("#confirmation").isPresent()).toBeTruthy();
   });
-
-
 });
