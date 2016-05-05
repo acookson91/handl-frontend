@@ -1,14 +1,10 @@
-handlApp.service('deliveryDetailsService', ['$http', function($http){
+handlApp.service('deliveryDetailsService', ['$resource', function($resource){
   var self = this;
   self.delivery = [];
 
-  self.getOne = function(id){
-    console.log(id);
-  return $http.get('http://localhost:3000/deliveries/' + id)
-    .then(function(response){
-      console.log(response.data);
 
-      self.delivery = response.data;
-    });
+  self.getOne = function(id){
+  self.delivery = $resource('http://localhost:3000/deliveries/' + id).get();
+  console.log(self.delivery);
   };
 }]);

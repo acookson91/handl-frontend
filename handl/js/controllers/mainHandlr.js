@@ -9,8 +9,11 @@ function($scope, $location, deliveryListService, deliveryDetailsService){
 
   $scope.pullDeliveryDetails = function(id){
     deliveryDetailsService.getOne(id);
+    // console.log(deliveryDetailsService.delivery);
   };
 
   $scope.getDeliveryDetails();
+  // console.log($scope.delivery);
+
 
 }]);
