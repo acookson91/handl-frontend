@@ -12,6 +12,12 @@ describe('handl',function(){
     expect($("#delivery-form").isPresent()).toBeTruthy();
   });
 
+  it('page does not have confirmation on it', function(){
+    browser.get('/');
+    $("#new-delivery").click();
+    expect($("#confirmation").isPresent()).toBeFalsy();
+  });
+
   it('has a confirm delivery page that displays addresses', function(){
     browser.get('/');
     $("#new-delivery").click();
@@ -24,7 +30,7 @@ describe('handl',function(){
     $("#recipient-address2").sendKeys("London");
     $("#recipient-postcode").sendKeys("E1 7jb");
     $("#submit").click();
-    expect($("#confirmation").getText()).toEqual("Please confirm your delivery");
+    expect($("#confirmation").isPresent()).toBeTruthy();
   });
 
   it('displays a list of delivery requests', function(){
@@ -38,6 +44,21 @@ describe('handl',function(){
     $('#delivery-list').click();
     list.first().click();
     expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/deliveries/1');
-    expect()
+  });
+
+  it('has a confirmation message page that displays when successful post to rails api', function(){
+    browser.get('/');
+    $("#new-delivery").click();
+    $("#collector-name-input").sendKeys("Sachin");
+    $("#collection-address1").sendKeys("50 Commercial Street");
+    $("#collection-address2").sendKeys("London");
+    $("#collection-postcode").sendKeys("E1 7jb");
+    $("#recipient-name-input").sendKeys("Barry");
+    $("#recipient-address1").sendKeys("51 Commercial Street");
+    $("#recipient-address2").sendKeys("London");
+    $("#recipient-postcode").sendKeys("E1 7jb");
+    $("#submit").click();
+    $("#confirm").click();
+    expect($("#successMessage").isPresent()).toBeTruthy();
   });
 });

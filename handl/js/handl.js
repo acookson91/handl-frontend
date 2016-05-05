@@ -22,5 +22,6 @@ handlApp.config(['$routeProvider', '$locationProvider', function($routeProvider,
     .when("/deliveries/:id", {
       templateUrl: "/js/templates/deliveries/show.html",
       controller: "deliveryController"
+
     });
 }]);
