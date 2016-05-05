@@ -7,6 +7,10 @@ handlApp.config(['$routeProvider', '$locationProvider', function($routeProvider,
       templateUrl: "/js/templates/home.html",
       controller: 'deliveriesController'
     })
+    .when("/deliveries/new", {
+      templateUrl: "/js/templates/deliveries/new.html",
+      controller: "newDeliveryController"
+    })
     .when("/delivery-form", {
       templateUrl: "/js/templates/delivery-form.html",
       controller: "deliveriesController"
@@ -22,6 +26,5 @@ handlApp.config(['$routeProvider', '$locationProvider', function($routeProvider,
     .when("/deliveries/:id", {
       templateUrl: "/js/templates/deliveries/show.html",
       controller: "deliveryController"
-
     });
 }]);
