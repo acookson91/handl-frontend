@@ -1,5 +1,5 @@
 <h1>Deliveries</h1>
-<div id='deliveries' ng-repeat="delivery in deliveries">
+<div id='deliveries' ng-repeat="delivery in deliveries | filter: {status: 'pending'}">
   <a id='delivery-link' href="#/deliveries/{{delivery.id}}">
     {{delivery.sender_name}}:
     {{delivery.pickup_postcode}} -
