@@ -1,7 +1,6 @@
 var handlApp = angular.module("handlApp", ["ngRoute","ngResource"]);
 
-handlApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
-  $locationProvider.html5Mode(true);
+handlApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
     .when("/", {
       templateUrl: "/js/templates/home.html",
