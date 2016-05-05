@@ -1,7 +1,6 @@
 var handlApp = angular.module("handlApp", ["ngRoute","ngResource"]);
 
-handlApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
-  $locationProvider.html5Mode(true);
+handlApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
     .when("/", {
       templateUrl: "/js/templates/home.html",
@@ -10,14 +9,6 @@ handlApp.config(['$routeProvider', '$locationProvider', function($routeProvider,
     .when("/deliveries/new", {
       templateUrl: "/js/templates/deliveries/new.html",
       controller: "newDeliveryController"
-    })
-    .when("/delivery-form", {
-      templateUrl: "/js/templates/delivery-form.html",
-      controller: "deliveriesController"
-    })
-    .when("/confirm-delivery", {
-      templateUrl: "/js/templates/confirm-delivery.html",
-      controller: "deliveriesController"
     })
     .when("/deliveries", {
       templateUrl: "/js/templates/deliveries/index.html",
