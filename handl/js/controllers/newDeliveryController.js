@@ -1,17 +1,17 @@
-handlApp.controller('mainHandlr', [ "$scope", "$location", "deliveryFactory", "addDeliveryService", function($scope, $location, deliveryFactory, addDeliveryService){
+handlApp.controller('newDeliveryController', [ "$scope", "$location", "deliveryFactory", "newDeliveryService", function($scope, $location, deliveryFactory, newDeliveryService){
   var self = this;
   $scope.deliveries = [];
   $scope.alertMessage = false;
   $scope.alertMessageFail = false;
 
 
-  $scope.addDeliveryDetails = function(delivery){
+  $scope.newDelivery = function(delivery){
     $scope.deliveries = [];
     $scope.deliveries.push(delivery);
   };
 
-  $scope.confirmDelivery = function(delivery){
-    addDeliveryService.create(delivery)
+  $scope.createDelivery = function(delivery){
+    newDeliveryService.create(delivery)
 
     .success(function(){
       $scope.alertMessage = true;

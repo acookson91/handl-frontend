@@ -1,4 +1,4 @@
-angular.module('handlApp').service('addDeliveryService',['$http', function($http){
+angular.module('handlApp').service('newDeliveryService',['$http', function($http){
   var self = this;
   self.AlertMessage = false;
   self.create = function(delivery) {

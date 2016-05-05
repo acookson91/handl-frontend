@@ -8,7 +8,7 @@
   Address1:<input id="recipient-address1" type="text" ng-model="delivery.dropoff_line1"/>
   Address2:<input id="recipient-address2" type="text" ng-model="delivery.dropoff_line2"/>
   Postcode:<input id="recipient-postcode" type="text" ng-model="delivery.dropoff_postcode"/>
-  <button id="submit" ng-click="addDeliveryDetails(delivery)" >Submit</button>
+  <button id="submit" ng-click="newDelivery(delivery)" >Submit</button>
 
 
 
@@ -26,7 +26,7 @@
     <p> Address line 1: {{ delivery.dropoff_line1}} </p>
     <p> Address line 2: {{ delivery.dropoff_line2}} </p>
     <p> Postcode: {{ delivery.dropoff_postcode }} </p>
-    <button id="confirm" ng-click="confirmDelivery(delivery)"> Confirm </button>
+    <button id="confirm" ng-click="createDelivery(delivery)"> Confirm </button>
     <div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
     <div ng-show="alertMessageFail">Your delivery has NOT been confirmed!</div>
 </div>

@@ -5,10 +5,10 @@ handlApp.config(function($routeProvider,$locationProvider){
   return $routeProvider
     .when("/", {
       templateUrl: "/js/templates/home.html",
-      controller: 'mainHandlr'
+      controller: 'newDeliveryController'
     })
-    .when("/delivery-form", {
-      templateUrl: "/js/templates/delivery-form.html",
-      controller: "mainHandlr"
+    .when("/deliveries/new", {
+      templateUrl: "/js/templates/deliveries/new.html",
+      controller: "newDeliveryController"
     });
 });
