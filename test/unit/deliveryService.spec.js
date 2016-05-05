@@ -1,7 +1,7 @@
-describe('deliveryDetailsService', function(){
+describe('deliveryService', function(){
   beforeEach(module('handlApp'));
 
-  var deliveryDetailsService, httpBackend;
+  var deliveryService, httpBackend;
   var delivery = {
       sender_name: 'name',
       pickup_line1: '53 street',
@@ -10,16 +10,16 @@ describe('deliveryDetailsService', function(){
   ;
   var id = 1;
 
-  beforeEach(inject(function($httpBackend, _deliveryDetailsService_){
-    deliveryDetailsService = _deliveryDetailsService_;
+  beforeEach(inject(function($httpBackend, _deliveryService_){
+    deliveryService = _deliveryService_;
     httpBackend = $httpBackend;
   }));
 
   it('shows individual delivery requests', function(){
     httpBackend.expectGET('http://localhost:3000/deliveries/' + id).respond(delivery);
-    deliveryDetailsService.getOne(id)
+    deliveryService.find(id)
     .then(function(response){
-      expect(response).toEqual(delivery);
+      expect(response.data).toEqual(delivery);
     });
 
     httpBackend.flush();
