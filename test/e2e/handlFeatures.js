@@ -43,7 +43,7 @@ describe('handl',function(){
     browser.get('/');
     $('#delivery-list').click();
     list.first().click();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/deliveries/1');
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/deliveries/1');
   });
 
   it('has a confirmation message page that displays when successful post to rails api', function(){
