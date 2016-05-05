@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="handlApp">
+<html>
   <head>
     <meta charset="utf-8">
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="js/handl.js"></script>
-    <script src="js/controllers/mainHandlr.js"></script>
+    <script src="js/services/deliveriesService.js"></script>
+    <script src="js/services/deliveryService.js"></script>
+    <script src="js/controllers/deliveriesController.js"></script>
+    <script src="js/controllers/deliveryController.js"></script>
 
 
     <title>Handl App</title>
     <base href="/">
   </head>
-  <body>
+  <body lang="en" ng-app="handlApp">
     <div ng-view></div>
 
   </body>
