@@ -62,13 +62,12 @@ describe('handl',function(){
     expect($("#successMessage").isPresent()).toBeTruthy();
   });
 
-  xit('returns to list of all deliveries', function(){
+  it('returns to list of all deliveries', function(){
     browser.get('/');
     $('#delivery-list').click();
     list.first().click();
-    $('#delivery-list').click();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/deliveries');
-    // expect(list.first().getText()).toContain('James');
+    $('#return-delivery-list').click();
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/deliveries');
   });
 
   it('changes delivery status on button click', function(){
@@ -76,7 +75,7 @@ describe('handl',function(){
     $('#delivery-list').click();
     list.first().click();
     $('#select-delivery').click();
-    $('#select-delivery').click();
+    $('#collect-delivery').click();
     expect($('[ng-show=delivered]').isDisplayed()).toBeTruthy();
     expect($('[ng-show=select]').isDisplayed()).toBeFalsy();
   });
