@@ -1,4 +1,6 @@
 describe('handl',function(){
+  var list = $$('#delivery-link');
+
   it('has a title', function(){
     browser.get('/');
     expect(browser.getTitle()).toEqual('Handl App');
@@ -29,6 +31,19 @@ describe('handl',function(){
     $("#recipient-postcode").sendKeys("E1 7jb");
     $("#submit").click();
     expect($("#confirmation").isPresent()).toBeTruthy();
+  });
+
+  it('displays a list of delivery requests', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    expect(list.first().getText()).toContain('James');
+  });
+
+  it('displays full information for selected delivery request', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    list.first().click();
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/deliveries/1');
   });
 
   it('has a confirmation message page that displays when successful post to rails api', function(){
