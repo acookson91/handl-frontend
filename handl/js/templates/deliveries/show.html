@@ -9,3 +9,9 @@ THIS IS THE DETAAAAIIIILL BITCHES
   {{ delivery.dropoff_line2 }}
   {{ delivery.dropoff_postcode }}
 </ul>
+
+<button id='select-delivery' ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned'})">Select Delivery</button>
+
+<button ng-show='collected' ng-click="collectDelivery(delivery.id, {status: 'collected'})">Collected</button>
+
+<button ng-show='delivered' ng-click="completeDelivery(delivery.id, {status: 'delivered'})">Delivered</button>

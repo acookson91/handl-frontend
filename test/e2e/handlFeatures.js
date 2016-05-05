@@ -61,4 +61,23 @@ describe('handl',function(){
     $("#confirm").click();
     expect($("#successMessage").isPresent()).toBeTruthy();
   });
+
+  xit('returns to list of all deliveries', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    list.first().click();
+    $('#delivery-list').click();
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/deliveries');
+    // expect(list.first().getText()).toContain('James');
+  });
+
+  it('changes delivery status on button click', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    list.first().click();
+    $('#select-delivery').click();
+    $('#select-delivery').click();
+    expect($('[ng-show=delivered]').isDisplayed()).toBeTruthy();
+    expect($('[ng-show=select]').isDisplayed()).toBeFalsy();
+  });
 });
