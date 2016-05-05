@@ -1,4 +1,5 @@
-handlApp.controller('newDeliveryController', [ "$scope", "$location", "deliveryFactory", "newDeliveryService", function($scope, $location, deliveryFactory, newDeliveryService){
+handlApp.controller('newDeliveryController', [ "$scope", "$location", "newDeliveryService",
+function($scope, $location, newDeliveryService){
   var self = this;
   $scope.deliveries = [];
   $scope.alertMessage = false;
