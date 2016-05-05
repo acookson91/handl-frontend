@@ -61,4 +61,22 @@ describe('handl',function(){
     $("#confirm").click();
     expect($("#successMessage").isPresent()).toBeTruthy();
   });
+
+  it('returns to list of all deliveries', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    list.first().click();
+    $('#return-delivery-list').click();
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/deliveries');
+  });
+
+  it('changes delivery status on button click', function(){
+    browser.get('/');
+    $('#delivery-list').click();
+    list.first().click();
+    $('#select-delivery').click();
+    $('#collect-delivery').click();
+    expect($('[ng-show=delivered]').isDisplayed()).toBeTruthy();
+    expect($('[ng-show=select]').isDisplayed()).toBeFalsy();
+  });
 });
