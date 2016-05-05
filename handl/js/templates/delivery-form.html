@@ -27,6 +27,6 @@
     <p> Address line 2: {{ delivery.dropoff_line2}} </p>
     <p> Postcode: {{ delivery.dropoff_postcode }} </p>
     <button id="confirm" ng-click="confirmDelivery(delivery)"> Confirm </button>
-    <div ng-show="alertMessage">Your delivery has been confirmed!</div>
+    <div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
     <div ng-show="alertMessageFail">Your delivery has NOT been confirmed!</div>
 </div>

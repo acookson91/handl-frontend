@@ -5,7 +5,6 @@ handlApp.controller('mainHandlr', [ "$scope", "$location", "deliveryFactory", "a
   $scope.alertMessageFail = false;
 
 
-
   $scope.addDeliveryDetails = function(delivery){
     $scope.deliveries = [];
     $scope.deliveries.push(delivery);
