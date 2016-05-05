@@ -11,14 +11,6 @@ handlApp.config(['$routeProvider', '$locationProvider', function($routeProvider,
       templateUrl: "/js/templates/deliveries/new.html",
       controller: "newDeliveryController"
     })
-    .when("/delivery-form", {
-      templateUrl: "/js/templates/delivery-form.html",
-      controller: "deliveriesController"
-    })
-    .when("/confirm-delivery", {
-      templateUrl: "/js/templates/confirm-delivery.html",
-      controller: "deliveriesController"
-    })
     .when("/deliveries", {
       templateUrl: "/js/templates/deliveries/index.html",
       controller: "deliveriesController"
