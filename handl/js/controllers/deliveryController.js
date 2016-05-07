@@ -1,5 +1,5 @@
-handlApp.controller('deliveryController', ["$scope", "$location", "$routeParams", "deliveryService", "deliveryUpdateService",
-function($scope, $location, $routeParams, deliveryService, deliveryUpdateService){
+handlApp.controller('deliveryController', ["$scope", "$location", "$routeParams", "deliveryService", "deliveryUpdateService", "directionsService", "locationService",
+function($scope, $location, $routeParams, deliveryService, deliveryUpdateService, directionsService, locationService){
 
   $scope.select = true;
   $scope.collected = false;
@@ -33,4 +33,27 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
     $scope.collected = true;
     $scope.select = false;
   };
+
+  $scope.map = locationService.map;
+  $scope.marker = locationService.marker;
+
+
+  $scope.displayDirections = function(delivery) {
+    directionsService.getDirections(delivery);
+  };
+
+  $scope.findMyLocation = function(){
+    locationService.getMyLocation();
+  };
+
+
+  function init(delivery) {
+    $scope.findMyLocation();
+    $scope.displayDirections(delivery);
+  }
+
+  console.log($scope.delivery);
+
+
+
 }]);
