@@ -13,7 +13,7 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.selectDelivery = function(id,status){
     deliveryUpdateService.update(id, status);
-    swapButton();
+    _swapButton();
   };
 
   $scope.collectDelivery = function(id,status){
@@ -29,7 +29,7 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.show($routeParams.id);
 
-  var swapButton = function(){
+  var _swapButton = function(){
     $scope.collected = true;
     $scope.select = false;
   };

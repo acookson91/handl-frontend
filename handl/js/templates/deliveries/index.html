@@ -1,11 +1,15 @@
 <h1>Deliveries</h1>
 
-<ui-gmap-google-map center='{latitude: 45, longitude: -73}' zoom='8'></ui-gmap-google-map>
+<ui-gmap-google-map ng-init="getMyLocation()" center='map.center' zoom='map.zoom'>
+  <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
+
+</ui-gmap-google-map>
 
 <div id='deliveries' ng-repeat="delivery in deliveries | filter: {status: 'pending'}">
   <a id='delivery-link' href="#/deliveries/{{delivery.id}}">
     {{delivery.sender_name}}:
     {{delivery.pickup_postcode}} -
     {{delivery.dropoff_postcode}}
+
   </a>
 </div>

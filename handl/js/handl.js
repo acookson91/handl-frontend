@@ -4,7 +4,8 @@ angular
   .module("handlApp", [
           "ngRoute",
           "ngResource",
-          "uiGmapgoogle-maps"
+          "uiGmapgoogle-maps",
+          "ngGeolocation"
         ])
   .config(['$routeProvider','uiGmapGoogleMapApiProvider', function($routeProvider, uiGmapGoogleMapApiProvider){
   $routeProvider
