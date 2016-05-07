@@ -18,10 +18,30 @@ function($scope, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, del
     directionsService.getDirections(delivery);
   };
 
-  $scope.findMyLocation = function(){
-    locationService.getMyLocation();
+  // $scope.findMyLocation = function(){
+  //   locationService.getMyLocation();
+  // };
+
+  $scope.getMyLocation = function() {
+    var geolocation = navigator.geolocation;
+    return geolocation.getCurrentPosition(findMe);
   };
 
+  function findMe(position) {
+    _updateMarker(position);
+    _updateMap(position);
+  };
+
+  function _updateMarker(position){
+    $scope.marker.coords.latitude = position.coords.latitude;
+    $scope.marker.coords.longitude = position.coords.longitude;
+  };
+
+  function _updateMap(position){
+    $scope.map.center = {latitude: position.coords.latitude, longitude: position.coords.longitude};
+    $scope.map.zoom = 12;
+  }
+
   $scope.index();
-  $scope.findMyLocation();
+  $scope.getMyLocation();
 }]);

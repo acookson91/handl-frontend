@@ -3,12 +3,13 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveries
 
   var self = this;
 
-  var center = {latitude: 51.5082450, longitude: -0.0877000};
 
+  var center = {latitude: 51.5082450, longitude: -0.0877000};
+  console.log(self.marker);
   self.marker = {
     id: 0,
-    coords: {latitude: 52.9776, longitude: 2.349014}
-  }
+    coords: {latitude: 51.5082450, longitude: -0.0877000}
+  };
 
   self.map = {
     control: {},
@@ -29,12 +30,11 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveries
   function _updateMarker(position){
     self.marker.coords.latitude = position.coords.latitude;
     self.marker.coords.longitude = position.coords.longitude;
+    console.log(position);
   };
 
   function _updateMap(position){
     self.map.center = {latitude: position.coords.latitude, longitude: position.coords.longitude};
     self.map.zoom = 12;
   }
-
-
 }]);

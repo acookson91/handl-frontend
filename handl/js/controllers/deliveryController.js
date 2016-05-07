@@ -4,6 +4,7 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
   $scope.select = true;
   $scope.collected = false;
   $scope.delivered = false;
+  $scope.delivery = {};
 
   $scope.show = function(id){
     deliveryService.find(id).then(function(response){
@@ -13,13 +14,12 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.selectDelivery = function(id,status){
     deliveryUpdateService.update(id, status);
-    _swapButton();
+    _swapButtonToCollected();
   };
 
   $scope.collectDelivery = function(id,status){
     deliveryUpdateService.update(id, status);
-    $scope.collected = false;
-    $scope.delivered = true;
+    _swapButtonToDelivered();
   };
 
   $scope.completeDelivery = function(id,status){
@@ -29,9 +29,14 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.show($routeParams.id);
 
-  var _swapButton = function(){
+  var _swapButtonToCollected = function(){
     $scope.collected = true;
     $scope.select = false;
+  };
+
+  var _swapButtonToDelivered = function(id,status){
+    $scope.collected = false;
+    $scope.delivered = true;
   };
 
   $scope.map = locationService.map;
@@ -44,16 +49,14 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.findMyLocation = function(){
     locationService.getMyLocation();
+    console.log($scope.marker);
   };
 
+  $scope.directionsToPickup = function(marker, delivery){
+    directionsService.getToPickup(marker, delivery);
+  };
 
-  function init(delivery) {
-    $scope.findMyLocation();
-    $scope.displayDirections(delivery);
-  }
-
-  console.log($scope.delivery);
-
+  $scope.delivery;
 
 
 }]);
