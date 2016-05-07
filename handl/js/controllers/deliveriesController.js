@@ -1,5 +1,5 @@
-handlApp.controller('deliveriesController', ["$scope", "$document", "uiGmapIsReady", 'uiGmapGoogleMapApi', "$location", "$geolocation","deliveriesService",
-function($scope, $document, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveriesService){
+handlApp.controller('deliveriesController', ["$scope", "$timeout", "$document", "uiGmapIsReady", 'uiGmapGoogleMapApi', "$location", "$geolocation","deliveriesService",
+function($scope, $document, $timeout, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveriesService){
 
   var center = {latitude: 51.5082450, longitude: -0.0877000};
 
@@ -27,24 +27,25 @@ function($scope, $document, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolo
 
 
 
-  $scope.getDirections = function() {
+  $scope.getDirections = function(delivery) {
     var directionsService = new google.maps.DirectionsService();
-    var map = $scope.map;
-    console.log(map);
+    var pickup_string = delivery.pickup_line1 + ", " + delivery.pickup_line2 + ", " + delivery.pickup_postcode;
+    var dropoff_string = delivery.dropoff_line1 + ", " + delivery.dropoff_line2 + ", " + delivery.dropoff_postcode;
     var request = {
-      origin: $scope.directions.origin,
-      destination: $scope.directions.destination,
+      origin: pickup_string,
+      destination: dropoff_string,
       travelMode: google.maps.DirectionsTravelMode.DRIVING
     };
-    directionsService.route(request, function (response, status) {
+    uiGmapIsReady.promise().then(function(map_instances){
+      var myMap = map_instances[0].map;
+      directionsService.route(request, function (response, status) {
       if (status === google.maps.DirectionsStatus.OK) {
-        console.log(response);
         directionsDisplay.setDirections(response);
-        directionsDisplay.setMap(map);
+        directionsDisplay.setMap(myMap);
       } else {
         alert('Google route unsuccesfull!');
       }
-    });
+    })});
   };
 
 
