@@ -49,12 +49,13 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.findMyLocation = function(){
     locationService.getMyLocation();
-    console.log($scope.marker);
   };
 
   $scope.directionsToPickup = function(marker, delivery){
     directionsService.getToPickup(marker, delivery);
   };
+
+  $scope.findMyLocation();
 
   $scope.delivery;
 

@@ -2,10 +2,9 @@ handlApp.controller('deliveriesController', ["$scope", "uiGmapIsReady", 'uiGmapG
 function($scope, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveriesService, directionsService, locationService){
 
 
-
+  $scope.marker = locationService.marker;
 
   $scope.map = locationService.map;
-  $scope.marker = locationService.marker;
 
 
   $scope.index = function(){
@@ -18,30 +17,16 @@ function($scope, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, del
     directionsService.getDirections(delivery);
   };
 
-  // $scope.findMyLocation = function(){
-  //   locationService.getMyLocation();
-  // };
-
-  $scope.getMyLocation = function() {
-    var geolocation = navigator.geolocation;
-    return geolocation.getCurrentPosition(findMe);
+  $scope.findMyLocation = function(){
+    locationService.getMyLocation();
   };
 
-  function findMe(position) {
-    _updateMarker(position);
-    _updateMap(position);
-  };
+  // $scope.findMyLocation();
 
-  function _updateMarker(position){
-    $scope.marker.coords.latitude = position.coords.latitude;
-    $scope.marker.coords.longitude = position.coords.longitude;
-  };
 
-  function _updateMap(position){
-    $scope.map.center = {latitude: position.coords.latitude, longitude: position.coords.longitude};
-    $scope.map.zoom = 12;
-  }
+$scope.index();
+// $scope.getMyLocation();
 
-  $scope.index();
-  $scope.getMyLocation();
+
+
 }]);

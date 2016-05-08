@@ -8,8 +8,12 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveries
   var pickupDirectionsService = new google.maps.DirectionsService();
 
 this.getDirections = function(delivery) {
-  var pickup_string = delivery.pickup_line1 + ", " + delivery.pickup_line2 + ", " + delivery.pickup_postcode;
-  var dropoff_string = delivery.dropoff_line1 + ", " + delivery.dropoff_line2 + ", " + delivery.dropoff_postcode;
+
+
+  var pickup_string = delivery.pickup_line1 + ", " + delivery.pickup_line2 + ", " + delivery.pickup_postcode.replace(/\s+/, "") ;
+  var dropoff_string = delivery.dropoff_line1 + ", " + delivery.dropoff_line2 + ", " + delivery.dropoff_postcode.replace(/\s+/, "") ;
+
+  console.log(pickup_string)
 
   var request = {
     origin: pickup_string,
