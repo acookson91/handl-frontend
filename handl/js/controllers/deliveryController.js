@@ -1,5 +1,5 @@
-handlApp.controller('deliveryController', ["$scope", "$location", "$routeParams", "deliveryService", "deliveryUpdateService", "directionsService", "locationService",
-function($scope, $location, $routeParams, deliveryService, deliveryUpdateService, directionsService, locationService){
+handlApp.controller('deliveryController', ["$scope", "$routeParams", "deliveryService", "deliveryUpdateService", "directionsService", "locationService",
+function($scope, $routeParams, deliveryService, deliveryUpdateService, directionsService, locationService){
 
   $scope.map = locationService.map;
   $scope.marker = locationService.marker;
@@ -26,18 +26,7 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
     $scope.delivered = false;
   };
 
-  var _buttonDisplayed = function(delivery){
-    console.log(delivery);
-    if (delivery.status === 'pending'){
-      _showSelectButton();
-    } else if (delivery.status === 'assigned') {
-      _showCollectButton();
-    } else {
-      _showDeliveredButton();
-    }
-  };
   $scope.show($routeParams.id);
-
 
   $scope.displayDirections = function(delivery) {
     directionsService.getDeliveryDirections(delivery);
@@ -53,22 +42,33 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.findMyLocation();
 
-  var _showCollectButton = function(){
+  function _buttonDisplayed(delivery){
+    console.log(delivery);
+    if (delivery.status === 'pending'){
+      _showSelectButton();
+    } else if (delivery.status === 'assigned') {
+      _showCollectButton();
+    } else {
+      _showDeliveredButton();
+    }
+  }
+
+  function _showCollectButton(){
     $scope.select = false;
     $scope.collected = true;
     $scope.delivered = false;
-  };
+  }
 
-  var _showSelectButton = function(){
+  function _showSelectButton(){
     $scope.select = true;
     $scope.collected = false;
     $scope.delivered = false;
-  };
+  }
 
-  var _showDeliveredButton = function(){
+  function _showDeliveredButton(){
     $scope.select = false;
     $scope.collected = false;
     $scope.delivered = true;
-  };
+  }
 
 }]);
