@@ -1,11 +1,9 @@
-handlApp.controller('deliveriesController', ["$scope", "uiGmapIsReady", 'uiGmapGoogleMapApi', "$location", "$geolocation","deliveriesService", "directionsService", "locationService",
-function($scope, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveriesService, directionsService, locationService){
-
+handlApp.controller('deliveriesController', ["$scope","deliveriesService", "directionsService", "locationService",
+function($scope, deliveriesService, directionsService, locationService){
 
   $scope.marker = locationService.marker;
 
   $scope.map = locationService.map;
-
 
   $scope.index = function(){
     deliveriesService.all().then(function(response) {
@@ -14,18 +12,14 @@ function($scope, uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, del
   };
 
   $scope.displayDirections = function(delivery) {
-    directionsService.getDirections(delivery);
+    directionsService.getDeliveryDirections(delivery);
   };
 
   $scope.findMyLocation = function(){
     locationService.getMyLocation();
   };
 
-  // $scope.findMyLocation();
-
-
-$scope.index();
-// $scope.getMyLocation();
+  $scope.index();
 
 
 

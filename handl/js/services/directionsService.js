@@ -7,58 +7,52 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveries
   var pickupDirectionsDisplay = new google.maps.DirectionsRenderer();
   var pickupDirectionsService = new google.maps.DirectionsService();
 
-this.getDirections = function(delivery) {
-
-
-  var pickup_string = delivery.pickup_line1 + ", " + delivery.pickup_line2 + ", " + delivery.pickup_postcode.replace(/\s+/, "") ;
-  var dropoff_string = delivery.dropoff_line1 + ", " + delivery.dropoff_line2 + ", " + delivery.dropoff_postcode.replace(/\s+/, "") ;
-
-  console.log(pickup_string)
-
-  var request = {
-    origin: pickup_string,
-    destination: dropoff_string,
-    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  this.getDeliveryDirections = function(delivery) {
+    var request = _createRequest(_createPickupString(delivery), _createDropOffString(delivery));
+    _renderDirections(request, deliveryDirectionsService, deliveryDirectionsDisplay);
   };
-  _renderDirections(request);
-};
 
-this.getToPickup = function(marker, delivery) {
-  var myLocationCoords = {lat: marker.coords.latitude, lng: marker.coords.longitude};
-  var pickup_string = delivery.pickup_line1 + ", " + delivery.pickup_line2 + ", " + delivery.pickup_postcode;
-
-  var request = {
-    origin: myLocationCoords,
-    destination: pickup_string,
-    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  this.getToPickup = function(marker, delivery) {
+    var request = _createRequest(_defineMyLocation(marker), _createPickupString(delivery));
+    _renderDirections(request, pickupDirectionsService, pickupDirectionsDisplay );
   };
-  _renderPickupDirections(request)
-};
 
-function _renderDirections(request) {
-  uiGmapIsReady.promise().then(function(map_instances){
-    var myMap = map_instances[0].map;
-    deliveryDirectionsService.route(request, function (response, status) {
-    if (status === google.maps.DirectionsStatus.OK) {
-      deliveryDirectionsDisplay.setDirections(response);
-      deliveryDirectionsDisplay.setMap(myMap);
-    } else {
-      alert('Google route unsuccesfull!');
-    }
-  })});
-}
+  function _createRequest(origin, destination){
+    return {
+      origin: origin,
+      destination: destination,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+  }
 
-function _renderPickupDirections(request) {
-  uiGmapIsReady.promise().then(function(map_instances){
-    var myMap = map_instances[0].map;
-    pickupDirectionsService.route(request, function (response, status) {
-    if (status === google.maps.DirectionsStatus.OK) {
-      pickupDirectionsDisplay.setDirections(response);
-      pickupDirectionsDisplay.setMap(myMap);
-    } else {
-      alert('Google route unsuccesfull!');
-    }
-  })});
-}
+  function _renderDirections(request, service, display) {
+    uiGmapIsReady.promise().then(function(map_instances){
+      var myMap = map_instances[0].map;
+      _deliveryDirections(myMap, request, service, display);
+  });
+  }
+
+  function _deliveryDirections(myMap, request, service, display){
+    service.route(request, function (response, status) {
+      if (status === google.maps.DirectionsStatus.OK) {
+        display.setDirections(response);
+        display.setMap(myMap);
+      } else {
+        alert('Google route unsuccesfull!');
+      }
+    });
+  }
+
+
+  function _createPickupString(delivery){
+    return delivery.pickup_line1 + ", " + delivery.pickup_line2 + ", " + delivery.pickup_postcode.replace(/\s+/, "");
+  }
+
+  function _createDropOffString(delivery){
+    return delivery.dropoff_line1 + ", " + delivery.dropoff_line2 + ", " + delivery.dropoff_postcode.replace(/\s+/, "");
+  }
+  function _defineMyLocation(marker){
+    return {lat: marker.coords.latitude, lng: marker.coords.longitude};
+  }
 
 }]);

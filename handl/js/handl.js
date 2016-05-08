@@ -1,6 +1,4 @@
-var handlApp =
-
-angular
+var handlApp = angular
   .module("handlApp", [
           "ngRoute",
           "ngResource",

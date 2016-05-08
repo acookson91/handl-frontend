@@ -1,25 +1,24 @@
 handlApp.controller('deliveryController', ["$scope", "$location", "$routeParams", "deliveryService", "deliveryUpdateService", "directionsService", "locationService",
 function($scope, $location, $routeParams, deliveryService, deliveryUpdateService, directionsService, locationService){
 
-  $scope.select = true;
-  $scope.collected = false;
-  $scope.delivered = false;
-  $scope.delivery = {};
+  $scope.map = locationService.map;
+  $scope.marker = locationService.marker;
 
   $scope.show = function(id){
     deliveryService.find(id).then(function(response){
         $scope.delivery = response.data;
+        _buttonDisplayed(response.data);
     });
   };
 
   $scope.selectDelivery = function(id,status){
     deliveryUpdateService.update(id, status);
-    _swapButtonToCollected();
+    _showCollectButton();
   };
 
   $scope.collectDelivery = function(id,status){
     deliveryUpdateService.update(id, status);
-    _swapButtonToDelivered();
+    _showDeliveredButton();
   };
 
   $scope.completeDelivery = function(id,status){
@@ -27,24 +26,21 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
     $scope.delivered = false;
   };
 
+  var _buttonDisplayed = function(delivery){
+    console.log(delivery);
+    if (delivery.status === 'pending'){
+      _showSelectButton();
+    } else if (delivery.status === 'assigned') {
+      _showCollectButton();
+    } else {
+      _showDeliveredButton();
+    }
+  };
   $scope.show($routeParams.id);
-
-  var _swapButtonToCollected = function(){
-    $scope.collected = true;
-    $scope.select = false;
-  };
-
-  var _swapButtonToDelivered = function(id,status){
-    $scope.collected = false;
-    $scope.delivered = true;
-  };
-
-  $scope.map = locationService.map;
-  $scope.marker = locationService.marker;
 
 
   $scope.displayDirections = function(delivery) {
-    directionsService.getDirections(delivery);
+    directionsService.getDeliveryDirections(delivery);
   };
 
   $scope.findMyLocation = function(){
@@ -57,7 +53,22 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.findMyLocation();
 
-  $scope.delivery;
+  var _showCollectButton = function(){
+    $scope.select = false;
+    $scope.collected = true;
+    $scope.delivered = false;
+  };
 
+  var _showSelectButton = function(){
+    $scope.select = true;
+    $scope.collected = false;
+    $scope.delivered = false;
+  };
+
+  var _showDeliveredButton = function(){
+    $scope.select = false;
+    $scope.collected = false;
+    $scope.delivered = true;
+  };
 
 }]);
