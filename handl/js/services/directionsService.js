@@ -14,7 +14,7 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveries
 
   this.getToPickup = function(marker, delivery) {
     var request = _createRequest(_defineMyLocation(marker), _createPickupString(delivery));
-    _renderDirections(request, pickupDirectionsService, pickupDirectionsDisplay );
+    _renderDirections(request, deliveryDirectionsService, deliveryDirectionsDisplay );
   };
 
   function _createRequest(origin, destination){

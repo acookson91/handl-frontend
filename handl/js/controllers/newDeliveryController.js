@@ -32,7 +32,7 @@ function($scope,uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, newD
 
 
   $scope.displayDirections = function(delivery) {
-    directionsService.getDirections(delivery);
+    directionsService.getDeliveryDirections(delivery);
   };
 
   $scope.findMyLocation = function(){
