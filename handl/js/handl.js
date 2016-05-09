@@ -3,7 +3,8 @@ var handlApp = angular
           "ngRoute",
           "ngResource",
           "uiGmapgoogle-maps",
-          "ngGeolocation"
+          "ngGeolocation",
+          'ng-token-auth'
         ])
   .config(['$routeProvider','uiGmapGoogleMapApiProvider', function($routeProvider, uiGmapGoogleMapApiProvider){
   uiGmapGoogleMapApiProvider.configure({
