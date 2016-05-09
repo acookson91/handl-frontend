@@ -1,13 +1,12 @@
 var handlApp = angular
-  .module("handlApp", [
-          "ngRoute",
-          "ngResource",
-          "uiGmapgoogle-maps",
-          "ngGeolocation",
+  .module('handlApp', [
+          'ui.router',
+          'uiGmapgoogle-maps',
+          'ngGeolocation',
           'ng-token-auth'
         ])
-  .config(['$routeProvider','uiGmapGoogleMapApiProvider', '$authProvider',
-   function($routeProvider, uiGmapGoogleMapApiProvider, $authProvider){
+  .config(['$stateProvider','$urlRouterProvider', 'uiGmapGoogleMapApiProvider', '$authProvider',
+   function($stateProvider, $urlRouterProvider,  uiGmapGoogleMapApiProvider, $authProvider){
 
   uiGmapGoogleMapApiProvider.configure({
       key: 'AIzaSyCb_yS8HN7rAesCGtmMN8KztNNzU-kXLFs',
@@ -46,9 +45,10 @@ var handlApp = angular
       templateUrl: '/js/templates/deliveries/show.html',
       controller: "deliveryController"
     });
-    $urlRouterProvider.otherwise('/');
-  }]);
+
+  $urlRouterProvider.otherwise('/');
 
   $authProvider.configure({
     apiUrl: 'http://localhost:3000/api'
   });
+}]);
