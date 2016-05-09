@@ -25,6 +25,7 @@
     <script src="js/services/directionsService.js"></script>
     <script src="js/services/locationService.js"></script>
     <!--  controllers -->
+    <script src="js/controllers/userSessionsController.js"></script>
     <script src="js/controllers/deliveriesController.js"></script>
     <script src="js/controllers/deliveryController.js"></script>
     <script src="js/controllers/newDeliveryController.js"></script>
@@ -36,6 +37,7 @@
   </head>
   <body lang="en" ng-app="handlApp">
     <a href="#/">HOME</a>
+    <li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
     <div ng-view></div>
 
   </body>

@@ -17,6 +17,10 @@ var handlApp = angular
       templateUrl: "/js/templates/home.html",
       controller: 'deliveriesController'
     })
+    .when("/sign_in", {
+      templateUrl: "/js/templates/user_sessions/new.html",
+      controller: 'userSessionsController'
+    })
     .when("/deliveries/new", {
       templateUrl: "/js/templates/deliveries/new.html",
       controller: "newDeliveryController"
