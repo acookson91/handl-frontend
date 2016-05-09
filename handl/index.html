@@ -5,8 +5,7 @@
     <link rel='stylesheet' type='text/css' href='styles/deliveries.css'></link>
     <!--  scripts -->
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src='bower_components/lodash/dist/lodash.js'></script>
     <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.js'></script>
     <script src='//maps.googleapis.com/maps/api/js?sensor=false' ></script>
@@ -34,7 +33,7 @@
   </head>
   <body lang="en" ng-app="handlApp">
     <a href="#/">HOME</a>
-    <div ng-view></div>
+    <div ui-view></div>
 
   </body>
 </html>

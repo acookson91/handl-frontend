@@ -1,32 +1,36 @@
 var handlApp = angular
-  .module("handlApp", [
-          "ngRoute",
-          "ngResource",
-          "uiGmapgoogle-maps",
-          "ngGeolocation"
+  .module('handlApp', [
+          'ui.router',
+          'uiGmapgoogle-maps',
+          'ngGeolocation'
         ])
-  .config(['$routeProvider','uiGmapGoogleMapApiProvider', function($routeProvider, uiGmapGoogleMapApiProvider){
+  .config(['$stateProvider', '$urlRouterProvider', 'uiGmapGoogleMapApiProvider', function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider){
   uiGmapGoogleMapApiProvider.configure({
       key: 'AIzaSyCb_yS8HN7rAesCGtmMN8KztNNzU-kXLFs',
       v: '3.20', //defaults to latest 3.X anyhow
       libraries: 'weather,geometry,visualization'
   });
-  $routeProvider
-    .when("/", {
-      templateUrl: "/js/templates/home.html",
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: '/js/templates/home.html',
       controller: 'deliveriesController'
     })
-    .when("/deliveries/new", {
-      templateUrl: "/js/templates/deliveries/new.html",
+    .state('/deliveries/new', {
+      url: '/deliveries/new',
+      templateUrl: '/js/templates/deliveries/new.html',
       controller: "newDeliveryController"
     })
-    .when("/deliveries", {
+    .state('/deliveries', {
+      url: '/deliveries',
       templateUrl: "/js/templates/deliveries/index.html",
       controller: "deliveriesController"
     })
-    .when("/deliveries/:id", {
-      templateUrl: "/js/templates/deliveries/show.html",
+    .state('/deliveries/:id', {
+      url: '/deliveries/:id',
+      templateUrl: '/js/templates/deliveries/show.html',
       controller: "deliveryController"
     });
 
+    $urlRouterProvider.otherwise('/');
 }]);
