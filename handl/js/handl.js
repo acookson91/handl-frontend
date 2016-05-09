@@ -15,33 +15,40 @@ var handlApp = angular
       libraries: 'weather,geometry,visualization'
   });
 
-  $routeProvider
-    .when("/", {
-      templateUrl: "/js/templates/home.html",
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: '/js/templates/home.html',
       controller: 'deliveriesController'
     })
-    .when("/sign_up", {
+    .state("/sign_up", {
+      url: '/sign_up',
       templateUrl: "/js/templates/users/new.html",
       controller: 'usersController'
     })
-    .when("/sign_in", {
+    .state('/sign_in', {
+      url: 'sign_in',
       templateUrl: "/js/templates/user_sessions/new.html",
       controller: 'userSessionsController'
     })
-    .when("/deliveries/new", {
-      templateUrl: "/js/templates/deliveries/new.html",
+    .state('/deliveries/new', {
+      url: '/deliveries/new',
+      templateUrl: '/js/templates/deliveries/new.html',
       controller: "newDeliveryController"
     })
-    .when("/deliveries", {
+    .state('/deliveries', {
+      url: '/deliveries',
       templateUrl: "/js/templates/deliveries/index.html",
       controller: "deliveriesController"
     })
-    .when("/deliveries/:id", {
-      templateUrl: "/js/templates/deliveries/show.html",
+    .state('/deliveries/:id', {
+      url: '/deliveries/:id',
+      templateUrl: '/js/templates/deliveries/show.html',
       controller: "deliveryController"
     });
+    $urlRouterProvider.otherwise('/');
+  }]);
 
   $authProvider.configure({
     apiUrl: 'http://localhost:3000/api'
   });
-}]);
