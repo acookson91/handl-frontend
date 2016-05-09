@@ -1,11 +1,11 @@
-handlApp.service('directionsService', ["uiGmapIsReady", 'uiGmapGoogleMapApi', "$location", "$geolocation",
-function( uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveriesService){
+handlApp.service('directionsService', ['uiGmapIsReady', 'uiGmapGoogleMapApi', '$geolocation',
+function( uiGmapIsReady, uiGmapGoogleMapApi, $geolocation, deliveriesService){
 
   var geocoder = new google.maps.Geocoder();
   var deliveryDirectionsDisplay = new google.maps.DirectionsRenderer();
   var deliveryDirectionsService = new google.maps.DirectionsService();
-  var pickupDirectionsDisplay = new google.maps.DirectionsRenderer();
-  var pickupDirectionsService = new google.maps.DirectionsService();
+  // var pickupDirectionsDisplay = new google.maps.DirectionsRenderer();
+  // var pickupDirectionsService = new google.maps.DirectionsService();
 
   this.getDeliveryDirections = function(delivery) {
     var request = _createRequest(_createPickupString(delivery), _createDropOffString(delivery));
@@ -14,7 +14,7 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $location, $geolocation, deliveries
 
   this.getToPickup = function(marker, delivery) {
     var request = _createRequest(_defineMyLocation(marker), _createPickupString(delivery));
-    _renderDirections(request, deliveryDirectionsService, deliveryDirectionsDisplay );
+    _renderDirections(request, deliveryDirectionsService, deliveryDirectionsDisplay);
   };
 
   function _createRequest(origin, destination){

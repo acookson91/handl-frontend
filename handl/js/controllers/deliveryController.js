@@ -1,4 +1,4 @@
-handlApp.controller('deliveryController', ["$scope", "$routeParams", "deliveryService", "deliveryUpdateService", "directionsService", "locationService",
+handlApp.controller('deliveryController', ['$scope', '$routeParams', 'deliveryService', 'deliveryUpdateService', 'directionsService', 'locationService',
 function($scope, $routeParams, deliveryService, deliveryUpdateService, directionsService, locationService){
 
   $scope.map = locationService.map;
@@ -43,7 +43,6 @@ function($scope, $routeParams, deliveryService, deliveryUpdateService, direction
   $scope.findMyLocation();
 
   function _buttonDisplayed(delivery){
-    console.log(delivery);
     if (delivery.status === 'pending'){
       _showSelectButton();
     } else if (delivery.status === 'assigned') {

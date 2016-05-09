@@ -1,4 +1,4 @@
-handlApp.service('locationService', ["uiGmapIsReady", 'uiGmapGoogleMapApi', "$geolocation",
+handlApp.service('locationService', ['uiGmapIsReady', 'uiGmapGoogleMapApi', '$geolocation',
 function( uiGmapIsReady, uiGmapGoogleMapApi, $geolocation, deliveriesService){
 
   var self = this;
