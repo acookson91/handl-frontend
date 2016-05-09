@@ -1,7 +1,7 @@
 handlApp.service('directionsService', ['uiGmapIsReady', 'uiGmapGoogleMapApi', '$geolocation',
 function( uiGmapIsReady, uiGmapGoogleMapApi, $geolocation, deliveriesService){
 
-  var geocoder = new google.maps.Geocoder();
+  // var geocoder = new google.maps.Geocoder();
   var deliveryDirectionsDisplay = new google.maps.DirectionsRenderer();
   var deliveryDirectionsService = new google.maps.DirectionsService();
   // var pickupDirectionsDisplay = new google.maps.DirectionsRenderer();
