@@ -1,6 +1,16 @@
-var handlApp = angular.module("handlApp", ["ngRoute","ngResource"]);
-
-handlApp.config(['$routeProvider', function($routeProvider){
+var handlApp = angular
+  .module("handlApp", [
+          "ngRoute",
+          "ngResource",
+          "uiGmapgoogle-maps",
+          "ngGeolocation"
+        ])
+  .config(['$routeProvider','uiGmapGoogleMapApiProvider', function($routeProvider, uiGmapGoogleMapApiProvider){
+  uiGmapGoogleMapApiProvider.configure({
+      key: 'AIzaSyCb_yS8HN7rAesCGtmMN8KztNNzU-kXLFs',
+      v: '3.20', //defaults to latest 3.X anyhow
+      libraries: 'weather,geometry,visualization'
+  });
   $routeProvider
     .when("/", {
       templateUrl: "/js/templates/home.html",
@@ -18,4 +28,5 @@ handlApp.config(['$routeProvider', function($routeProvider){
       templateUrl: "/js/templates/deliveries/show.html",
       controller: "deliveryController"
     });
+
 }]);

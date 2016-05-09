@@ -2,18 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href='styles/deliveries.css'></link>
+    <!--  scripts -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src='bower_components/lodash/dist/lodash.js'></script>
+    <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.js'></script>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false' ></script>
+    <script src='bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
+    <script src="bower_components/ngGeolocation/ngGeolocation.js"/>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!--  app -->
     <script src="js/handl.js"></script>
+    <!--  services -->
     <script src="js/services/newDeliveryService.js"></script>
     <script src="js/services/deliveriesService.js"></script>
     <script src="js/services/deliveryService.js"></script>
     <script src="js/services/deliveryUpdateService.js"></script>
+    <script src="js/services/directionsService.js"></script>
+    <script src="js/services/locationService.js"></script>
+    <!--  controllers -->
     <script src="js/controllers/deliveriesController.js"></script>
     <script src="js/controllers/deliveryController.js"></script>
     <script src="js/controllers/newDeliveryController.js"></script>
-    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+
 
 
     <title>Handl App</title>

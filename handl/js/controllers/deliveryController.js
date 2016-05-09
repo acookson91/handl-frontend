@@ -1,25 +1,24 @@
-handlApp.controller('deliveryController', ["$scope", "$location", "$routeParams", "deliveryService", "deliveryUpdateService",
-function($scope, $location, $routeParams, deliveryService, deliveryUpdateService){
+handlApp.controller('deliveryController', ['$scope', '$routeParams', 'deliveryService', 'deliveryUpdateService', 'directionsService', 'locationService',
+function($scope, $routeParams, deliveryService, deliveryUpdateService, directionsService, locationService){
 
-  $scope.select = true;
-  $scope.collected = false;
-  $scope.delivered = false;
+  $scope.map = locationService.map;
+  $scope.marker = locationService.marker;
 
   $scope.show = function(id){
     deliveryService.find(id).then(function(response){
         $scope.delivery = response.data;
+        _buttonDisplayed(response.data);
     });
   };
 
   $scope.selectDelivery = function(id,status){
     deliveryUpdateService.update(id, status);
-    swapButton();
+    _showCollectButton();
   };
 
   $scope.collectDelivery = function(id,status){
     deliveryUpdateService.update(id, status);
-    $scope.collected = false;
-    $scope.delivered = true;
+    _showDeliveredButton();
   };
 
   $scope.completeDelivery = function(id,status){
@@ -29,8 +28,46 @@ function($scope, $location, $routeParams, deliveryService, deliveryUpdateService
 
   $scope.show($routeParams.id);
 
-  var swapButton = function(){
-    $scope.collected = true;
-    $scope.select = false;
+  $scope.displayDirections = function(delivery) {
+    directionsService.getDeliveryDirections(delivery);
   };
+
+  $scope.findMyLocation = function(){
+    locationService.getMyLocation();
+  };
+
+  $scope.directionsToPickup = function(marker, delivery){
+    directionsService.getToPickup(marker, delivery);
+  };
+
+  $scope.findMyLocation();
+
+  function _buttonDisplayed(delivery){
+    if (delivery.status === 'pending'){
+      _showSelectButton();
+    } else if (delivery.status === 'assigned') {
+      _showCollectButton();
+    } else {
+      _showDeliveredButton();
+    }
+  }
+
+  function _showCollectButton(){
+    $scope.select = false;
+    $scope.collected = true;
+    $scope.delivered = false;
+  }
+
+  function _showSelectButton(){
+    $scope.select = true;
+    $scope.collected = false;
+    $scope.delivered = false;
+  }
+
+  function _showDeliveredButton(){
+    $scope.select = false;
+    $scope.collected = false;
+    $scope.delivered = true;
+  }
+
 }]);
