@@ -12,21 +12,19 @@ describe('handl', function(){
 
   it('user can sign in with valid credentials', function(){
     browser.get('/');
+    $('#sign-out').click();
     $('#sign-in').click();
     $('#email').sendKeys('bob@bob.com');
     $('#password').sendKeys('somepassword');
-    $('#sign-in').click();
+    $('#log-in').click();
     expect($('#sign-out').isPresent()).toBeTruthy();
     expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/deliveries');
   });
 
-  it('user can sign in with valid credentials', function(){
+  it('user can sign out', function(){
     browser.get('/');
-    $('#sign-in').click();
-    $('#email').sendKeys('bob@bob.com');
-    $('#password').sendKeys('somepassword');
-    $('#sign-in').click();
     $('#sign-out').click();
-    expect($('#sign-out').isPresent()).tobeFalsy();
+
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/');
   });
 });

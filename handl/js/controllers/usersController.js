@@ -1,4 +1,5 @@
-handlApp.controller('usersController', ['$scope', '$auth', function($scope, $state, $auth){
+handlApp.controller('usersController', ['$scope', '$state', '$auth',
+  function($scope, $state, $auth){
 
     $scope.handleRegBtnClick = function() {
       $auth.submitRegistration($scope.registrationForm)

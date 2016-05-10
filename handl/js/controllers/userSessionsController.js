@@ -1,4 +1,5 @@
-handlApp.controller('userSessionsController', ['$scope', function($scope, $state, $auth) {
+handlApp.controller('userSessionsController', ['$scope', '$state', '$auth',
+  function($scope, $state, $auth) {
 
   $scope.handleLoginBtnClick = function() {
    $auth.submitLogin($scope.loginForm)
