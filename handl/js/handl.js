@@ -5,6 +5,13 @@ var handlApp = angular
           'ngGeolocation',
           'ng-token-auth'
         ])
+
+  .run(['$rootScope', '$state', function($rootScope, $state) {
+    $rootScope.$on('auth:login-success', function() {
+      $state.go('deliveries');
+    });
+  }])
+
   .config(['$stateProvider','$urlRouterProvider', 'uiGmapGoogleMapApiProvider', '$authProvider',
    function($stateProvider, $urlRouterProvider,  uiGmapGoogleMapApiProvider, $authProvider){
 
@@ -20,25 +27,25 @@ var handlApp = angular
       templateUrl: '/js/templates/home.html',
       controller: 'deliveriesController'
     })
-    .state("/sign_up", {
+    .state('sign_up', {
       url: '/sign_up',
       templateUrl: "/js/templates/users/new.html",
       controller: 'usersController'
     })
-    .state('/sign_in', {
-      url: 'sign_in',
+    .state('sign_in', {
+      url: '/sign_in',
       templateUrl: "/js/templates/user_sessions/new.html",
       controller: 'userSessionsController'
     })
-    .state('/deliveries/new', {
+    .state('deliveries/new', {
       url: '/deliveries/new',
       templateUrl: '/js/templates/deliveries/new.html',
       controller: "newDeliveryController"
     })
-    .state('/deliveries', {
+    .state('deliveries', {
       url: '/deliveries',
       templateUrl: "/js/templates/deliveries/index.html",
-      controller: "deliveriesController"
+      controller: "deliveriesController",
     })
     .state('/deliveries/:id', {
       url: '/deliveries/:id',
@@ -51,4 +58,6 @@ var handlApp = angular
   $authProvider.configure({
     apiUrl: 'http://localhost:3000/api'
   });
+
+
 }]);

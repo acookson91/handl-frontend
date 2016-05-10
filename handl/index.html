@@ -38,7 +38,11 @@
   <body lang="en" ng-app="handlApp">
     <a href="#/">HOME</a>
 
-    <ng-show="user.id"><a ng-click='signOut()'><button>Sign out</button></a></li>
+    <a ng-show="user.id" ng-click='signOut()' href='#/'><button>Sign out</button></a>
+    <li ng-show='user.id'>{{user.email}}</li>
+    <a ng-show="!user.id" ng-href="#/sign_in"><button>Sign in</button></a>
+    <a ng-show="!user.id" ng-href="#/sign_up"><button>Sign Up</button></a>
+
     <div ui-view></div>
 
   </body>

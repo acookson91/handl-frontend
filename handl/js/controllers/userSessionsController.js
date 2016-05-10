@@ -1,9 +1,9 @@
-handlApp.controller('userSessionsController', ['$scope', function($scope, $auth) {
+handlApp.controller('userSessionsController', ['$scope', function($scope, $state, $auth) {
 
   $scope.handleLoginBtnClick = function() {
    $auth.submitLogin($scope.loginForm)
      .then(function(resp) {
-      console.log('hooray!');
+       console.log('yays');
      })
      .catch(function(resp) {
       console.log('nope.');
@@ -11,13 +11,14 @@ handlApp.controller('userSessionsController', ['$scope', function($scope, $auth)
   };
 
   $scope.handleSignOutBtnClick = function() {
-     $auth.signOut()
-       .then(function(resp) {
-        console.log('hooray!');
-       })
-       .catch(function(resp) {
-        console.log('nope.');
-       });
-   };
+   $auth.signOut()
+     .then(function(resp) {
+      console.log('hooray!');
+     })
+     .catch(function(resp) {
+      console.log('nope.');
+     });
+    $state.go('home');
+  };
 
 }]);
