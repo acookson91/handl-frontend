@@ -36,7 +36,7 @@
     <base href="/">
   </head>
   <body lang="en" ng-app="handlApp">
-    <a href="#/">HOME</a>
+    <a ui-sref="deliveries.index">HOME</a>
 
     <a id='sign-out' ng-show="user.id" ng-click='signOut()' href='#/'><button>Sign out</button></a>
     <a id='sign-in' ng-show="!user.id" ng-href="#/sign_in"><button>Sign in</button></a>

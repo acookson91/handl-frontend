@@ -8,7 +8,8 @@ var handlApp = angular
 
   .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('auth:login-success', function() {
-      $state.go('deliveries');
+      console.log('GREAT SUCCESS');
+      $state.go('deliveries.index');
     });
   }])
 
@@ -24,8 +25,8 @@ var handlApp = angular
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/js/templates/home.html',
-      controller: 'deliveriesController'
+      // templateUrl: '/',
+      controller: 'userSessionsController'
     })
     .state('sign_up', {
       url: '/sign_up',
@@ -37,21 +38,32 @@ var handlApp = angular
       templateUrl: "/js/templates/user_sessions/new.html",
       controller: 'userSessionsController'
     })
-    .state('deliveries/new', {
-      url: '/deliveries/new',
-      templateUrl: '/js/templates/deliveries/new.html',
-      controller: "newDeliveryController"
-    })
+
     .state('deliveries', {
       url: '/deliveries',
-      templateUrl: "/js/templates/deliveries/index.html",
-      controller: "deliveriesController",
+      abstract: true,
+      template: '<ui-view/>',
+      resolve: {
+        auth: function($auth){
+          return $auth.validateUser();
+        }
+      }
     })
-    .state('/deliveries/:id', {
-      url: '/deliveries/:id',
-      templateUrl: '/js/templates/deliveries/show.html',
-      controller: "deliveryController"
-    });
+      .state('deliveries.new', {
+        url: '/new',
+        templateUrl: '/js/templates/deliveries/new.html',
+        controller: "newDeliveryController"
+      })
+        .state('deliveries.index',{
+          url:'/',
+          templateUrl: "/js/templates/deliveries/index.html",
+          controller: "deliveriesController"
+        })
+          .state('deliveries.id', {
+            url: '/:id',
+            templateUrl: '/js/templates/deliveries/show.html',
+            controller: "deliveryController"
+          });
 
   $urlRouterProvider.otherwise('/');
 
