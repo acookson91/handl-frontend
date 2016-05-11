@@ -14,7 +14,7 @@ THIS IS THE DETAAAAIIIILL BITCHES
   {{ delivery.dropoff_line2 }}
   {{ delivery.dropoff_postcode }}
 </ul>
-<a id='return-delivery-list' href='#/deliveries'><button>Back to Deliveries</button></a>
+<a id='return-delivery-list' ui-sref='deliveries.index'><button>Back to Deliveries</button></a>
 
 <button ng-show='select' ng-click="findMyLocation()">Find Me</button>
 <button ng-show='select' ng-click="directionsToPickup(marker, delivery)">Get Me There</button>

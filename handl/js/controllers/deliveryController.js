@@ -1,5 +1,5 @@
-handlApp.controller('deliveryController', ['$scope', '$routeParams', 'deliveryService', 'deliveryUpdateService', 'directionsService', 'locationService',
-function($scope, $routeParams, deliveryService, deliveryUpdateService, directionsService, locationService){
+handlApp.controller('deliveryController', ['$scope', '$stateParams', 'deliveryService', 'deliveryUpdateService', 'directionsService', 'locationService',
+function($scope, $stateParams, deliveryService, deliveryUpdateService, directionsService, locationService){
 
   $scope.map = locationService.map;
   $scope.marker = locationService.marker;
@@ -26,7 +26,7 @@ function($scope, $routeParams, deliveryService, deliveryUpdateService, direction
     $scope.delivered = false;
   };
 
-  $scope.show($routeParams.id);
+  $scope.show($stateParams.id);
 
   $scope.displayDirections = function(delivery) {
     directionsService.getDeliveryDirections(delivery);

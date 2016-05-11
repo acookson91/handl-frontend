@@ -1,5 +1,5 @@
 handlApp.controller('newDeliveryController', [ '$scope', 'uiGmapIsReady', 'uiGmapGoogleMapApi', 'newDeliveryService', 'deliveriesService', 'directionsService', 'locationService',
-function($scope,uiGmapIsReady, uiGmapGoogleMap, newDeliveryService, deliveriesService, directionsService, locationService){
+function($scope, uiGmapIsReady, uiGmapGoogleMap, newDeliveryService, deliveriesService, directionsService, locationService){
   var self = this;
   $scope.deliveries = [];
   $scope.alertMessage = false;
