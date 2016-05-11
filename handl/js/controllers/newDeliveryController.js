@@ -37,7 +37,6 @@ function($scope,uiGmapIsReady, uiGmapGoogleMap, newDeliveryService, deliveriesSe
 
   $scope.findMyLocation = function(){
     locationService.getMyLocation();
-    console.log($scope.marker);
   };
 
 

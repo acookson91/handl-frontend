@@ -62,7 +62,7 @@ function($scope, $routeParams, deliveryService, deliveryUpdateService, direction
     $scope.select = true;
     $scope.collected = false;
     $scope.delivered = false;
-  }
+  } 
 
   function _showDeliveredButton(){
     $scope.select = false;
