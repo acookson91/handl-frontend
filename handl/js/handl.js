@@ -45,7 +45,10 @@ var handlApp = angular
       template: '<ui-view/>',
       resolve: {
         auth: function($auth){
-          return $auth.validateUser();
+          return $auth.validateUser().catch(function(err){
+                        console.info('not authenticated', err);
+                        $state.go('sign_in');
+          });
         }
       }
     })
@@ -68,7 +71,7 @@ var handlApp = angular
   $urlRouterProvider.otherwise('/');
 
   $authProvider.configure({
-    apiUrl: 'http://localhost:3000/api'
+    apiUrl: 'http://localhost:3000'
   });
 
 
