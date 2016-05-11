@@ -45,10 +45,7 @@ var handlApp = angular
       template: '<ui-view/>',
       resolve: {
         auth: function($auth){
-          return $auth.validateUser().catch(function(err){
-                        console.info('not authenticated', err);
-                        $state.go('sign_in');
-          });
+          return $auth.validateUser();
         }
       }
     })

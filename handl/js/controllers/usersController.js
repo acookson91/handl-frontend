@@ -1,5 +1,5 @@
-handlApp.controller('usersController', ['$scope', '$state', '$auth',
-  function($scope, $state, $auth){
+handlApp.controller('usersController', ['ipCookie','$scope', '$state', '$auth',
+  function(ipCookie ,$scope, $state, $auth){
 
     $scope.handleRegBtnClick = function() {
       $auth.submitRegistration($scope.registrationForm)
