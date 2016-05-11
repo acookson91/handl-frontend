@@ -7,7 +7,7 @@
 </ui-gmap-google-map>
 
 <div id='deliveries' ng-repeat="delivery in deliveries">
-  <a id='delivery-link' ui-sref="user.deliveries-id({id: delivery.id})">
+  <a id='delivery-link' ng-click="displayDirections(delivery)" ui-sref="user.deliveries-id({id: delivery.id})">
 
     {{delivery.sender_name}}:
     {{delivery.pickup_postcode}} -

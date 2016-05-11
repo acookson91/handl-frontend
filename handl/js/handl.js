@@ -10,7 +10,7 @@ var handlApp = angular
   .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('auth:login-success', function() {
       console.log('GREAT SUCCESS');
-      // $state.go('deliveries.index');
+      $state.go('profile');
     });
   }])
 
@@ -30,8 +30,14 @@ var handlApp = angular
       controller: 'userSessionsController'
     })
     .state('log-in', {
-      url: '/sign_in',
+      url: '/log_in',
       templateUrl: "/js/templates/user_sessions/new.html",
+      controller: 'userSessionsController'
+    })
+
+    .state('profile',{
+      url: '/profile',
+      templateUrl: '/js/templates/user_sessions/profile.html',
       controller: 'userSessionsController'
     })
 

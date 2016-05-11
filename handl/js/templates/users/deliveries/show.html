@@ -1,7 +1,7 @@
 USER SHOW
 
 <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-  <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
+  <!-- <ui-gmap-marker coords="marker .coords" idkey="marker.id"></ui-gmap-marker> -->
 </ui-gmap-google-map>
   DELIVERY STATUS {{ delivery.status }}
   <ul>
@@ -16,7 +16,7 @@ USER SHOW
 </ul>
 <button id='return-delivery-list' ui-sref='user.deliveries'>Back to Deliveries</button>
 
-<button ng-show='select' ng-click="findMyLocation()">Find Me</button>
+<!-- <button ng-show='select' ng-click="findMyLocation()">Find Me</button>
 <button ng-show='select' ng-click="directionsToPickup(marker, delivery)">Get Me There</button>
 
-<button ng-show='select' ng-click="displayDirections(delivery)">See Route</button>
+<button ng-show='select' ng-click="displayDirections(delivery)">See Route</button> -->

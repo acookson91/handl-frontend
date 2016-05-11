@@ -5,6 +5,7 @@ handlApp.controller('usersController', ['ipCookie','$scope', '$state', '$auth',
       $auth.submitRegistration($scope.registrationForm)
         .then(function() {
           $auth.submitLogin({
+            name: $scope.registrationForm.name,
             email: $scope.registrationForm.email,
             password: $scope.registrationForm.password
           });
