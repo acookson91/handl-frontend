@@ -18,13 +18,9 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $geolocation, deliveriesService){
   };
 
   this.getToDropOff = function(marker, delivery) {
-    console.log(request);
     var request = _createRequest(_defineMyLocation(marker), _createDropOffString(delivery));
-
-    
     _renderDirections(request, deliveryDirectionsService, deliveryDirectionsDisplay);
   };
-
 
 
   function _createRequest(origin, destination){
