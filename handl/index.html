@@ -5,6 +5,9 @@
     <link rel='stylesheet' type='text/css' href='styles/deliveries.css'></link>
     <!--  scripts -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src='bower_components/ng-token-auth/dist/ng-token-auth.js'></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src='bower_components/lodash/dist/lodash.js'></script>
     <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.js'></script>
@@ -22,6 +25,8 @@
     <script src="js/services/directionsService.js"></script>
     <script src="js/services/locationService.js"></script>
     <!--  controllers -->
+    <script src="js/controllers/userSessionsController.js"></script>
+    <script src="js/controllers/usersController.js"></script>
     <script src="js/controllers/deliveriesController.js"></script>
     <script src="js/controllers/deliveryController.js"></script>
     <script src="js/controllers/newDeliveryController.js"></script>
@@ -32,7 +37,12 @@
     <base href="/">
   </head>
   <body lang="en" ng-app="handlApp">
-    <a href="#/">HOME</a>
+    <a ui-sref="deliveries.index">HOME</a>
+
+    <a id='sign-out' ng-show="user.id" ng-click='signOut()' href='#/'><button>Sign out</button></a>
+    <a id='sign-in' ng-show="!user.id" ng-href="#/sign_in"><button>Sign in</button></a>
+    <a id='sign-up' ng-show="!user.id" ng-href="#/sign_up"><button>Sign Up</button></a>
+
     <div ui-view></div>
 
   </body>
