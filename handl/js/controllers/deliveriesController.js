@@ -1,5 +1,5 @@
-handlApp.controller('deliveriesController', ['ipCookie','$scope', 'deliveriesService', 'directionsService', 'locationService',
-function(ipCookie, $scope, deliveriesService, directionsService, locationService){
+handlApp.controller('deliveriesController', ['$scope', 'deliveriesService', 'directionsService', 'locationService',
+function($scope, deliveriesService, directionsService, locationService){
 
   $scope.marker = locationService.marker;
 
