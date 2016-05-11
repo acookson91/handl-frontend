@@ -27,6 +27,7 @@
     <!--  controllers -->
     <script src="js/controllers/userSessionsController.js"></script>
     <script src="js/controllers/usersController.js"></script>
+    <script src="js/controllers/handlrsController.js"></script>
     <script src="js/controllers/deliveriesController.js"></script>
     <script src="js/controllers/deliveryController.js"></script>
     <script src="js/controllers/newDeliveryController.js"></script>
@@ -37,17 +38,7 @@
     <base href="/">
   </head>
   <body lang="en" ng-app="handlApp">
-    <!-- <a ui-sref="deliveries.index">HOME</a> -->
-
     <a id='sign-out' ng-show="user.id" ng-click='signOut()' href='#/'><button>Sign out</button></a>
-  <!-- <a id='sign-in' ng-show="!user.id" ng-href="#/sign_in"><button>Sign in</button></a> -->
-  <!-- <a id='sign-up' ng-show="!user.id" ng-href="#/sign_up"><button>Sign Up</button></a> -->
-
-    <a id='sign-in' ng-show="!user.id" ng-href="#/user/sign_up"><button>I'm a Customer</button></a>
-    <a id='sign-in' ng-show="!user.id" ng-href="#/handlr/sign_in"><button>I'm a Handlr</button></a>
-
-    <a id='sign-in' ng-show="!user.id" ng-href="#/sign_in"><button>Log in</button></a>
-
     <div ui-view></div>
 
   </body>

@@ -1,4 +1,4 @@
-<div>
-<a id="new-delivery" href="#/deliveries/new">New Delivery</a>
-<a id="delivery-list" ng-click="findMyLocation()" href="#/deliveries">All Deliveries</a>
-</div>
+<a id='sign-in' ng-show="!user.id" ui-sref="user_sign_up"><button>I'm a Customer</button></a>
+<a id='sign-in' ng-show="!user.id" ui-sref="handlr_sign_up"><button>I'm a Handlr</button></a>
+
+<a id='sign-in' ng-show="!user.id" ng-href="#/sign_in"><button>Log in</button></a>
