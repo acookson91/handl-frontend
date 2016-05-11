@@ -3,7 +3,8 @@ var handlApp = angular
           'ui.router',
           'uiGmapgoogle-maps',
           'ngGeolocation',
-          'ng-token-auth'
+          'ng-token-auth',
+          'ngCookies'
         ])
 
   .run(['$rootScope', '$state', function($rootScope, $state) {
@@ -25,7 +26,6 @@ var handlApp = angular
   $stateProvider
     .state('home', {
       url: '/',
-      // templateUrl: '/',
       controller: 'userSessionsController'
     })
     .state('sign_up', {

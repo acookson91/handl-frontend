@@ -6,7 +6,7 @@
   <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
 </ui-gmap-google-map>
 
-<div id='deliveries' ng-repeat="delivery in deliveries | filter: {status: 'pending'}">
+<div id='deliveries' ng-repeat="delivery in deliveries | filter: {status: 'pending'} | filter: {user_id: delivery.user.id}">
   <a id='delivery-link' href="#/deliveries/{{delivery.id}}">
     {{delivery.sender_name}}:
     {{delivery.pickup_postcode}} -
