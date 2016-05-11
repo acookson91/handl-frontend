@@ -22,6 +22,6 @@ HANLDR SHOW
 
 <button ng-show='select' ng-click="displayDirections(delivery)">See Route</button>
 
-<button id='select-delivery' ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned'})">Select Delivery</button>
+<button id='select-delivery' ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned', handlr_id: user.id})">Select Delivery</button>
 <button id='collect-delivery' ng-show='collected' ng-click="collectDelivery(delivery.id, {status: 'collected'})">Collected</button>
 <button id='complete-delivery' ng-show='delivered' ng-click="completeDelivery(delivery.id, {status: 'delivered'})">Delivered</button>

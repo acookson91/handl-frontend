@@ -10,7 +10,7 @@ var handlApp = angular
   .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('auth:login-success', function() {
       console.log('GREAT SUCCESS');
-      $state.go('profile');
+      $state.go('user.profile');
     });
   }])
 
@@ -35,11 +35,11 @@ var handlApp = angular
       controller: 'userSessionsController'
     })
 
-    .state('profile',{
-      url: '/profile',
-      templateUrl: '/js/templates/user_sessions/profile.html',
-      controller: 'userSessionsController'
-    })
+    // .state('profile',{
+    //   url: '/profile',
+    //   templateUrl: '/js/templates/user_sessions/profile.html',
+    //   controller: 'userProfileController'
+    // })
 
     .state('user_sign_up', {
       url: '/user/sign_up',
@@ -55,6 +55,11 @@ var handlApp = angular
             return $auth.validateUser();
           }
         }
+      })
+      .state('user.profile',{
+        url: '/profile',
+        templateUrl: '/js/templates/user_sessions/profile.html',
+        controller: 'userProfileController'
       })
         .state('user.deliveries',{
           url:'/deliveries',

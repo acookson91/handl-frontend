@@ -11,8 +11,8 @@ function($scope, $stateParams, deliveryService, deliveryUpdateService, direction
     });
   };
 
-  $scope.selectDelivery = function(id,status){
-    deliveryUpdateService.update(id, status);
+  $scope.selectDelivery = function(id, params){
+    deliveryUpdateService.update(id, params);
     _showCollectButton();
   };
 
