@@ -40,6 +40,11 @@ function($scope, $stateParams, deliveryService, deliveryUpdateService, direction
     directionsService.getToPickup(marker, delivery);
   };
 
+  $scope.directionsToDropOff = function(marker, delivery){
+    console.log(marker);
+    directionsService.getToDropOff(marker, delivery);
+  }
+
   $scope.findMyLocation();
 
   function _buttonDisplayed(delivery){
@@ -62,7 +67,7 @@ function($scope, $stateParams, deliveryService, deliveryUpdateService, direction
     $scope.select = true;
     $scope.collected = false;
     $scope.delivered = false;
-  } 
+  }
 
   function _showDeliveredButton(){
     $scope.select = false;

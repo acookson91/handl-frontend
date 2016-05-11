@@ -20,6 +20,7 @@ THIS IS THE DETAAAAIIIILL BITCHES
 <button ng-show='select' ng-click="directionsToPickup(marker, delivery)">Get Me There</button>
 
 <button ng-show='select' ng-click="displayDirections(delivery)">See Route</button>
+<button ng-show='select' ng-click="directionsToDropOff(marker, delivery)">Get to dropoff</button>
 <button id='select-delivery' ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned'})">Select Delivery</button>
-<button id='collect-delivery' ng-show='collected' ng-click="collectDelivery(delivery.id, {status: 'collected'})">Collected</button>
+<button id='collect-delivery' ng-show='collected' ng-click="collectDelivery(delivery.id, {status: 'collected'}, marker, delivery)">Collected</button>
 <button id='complete-delivery' ng-show='delivered' ng-click="completeDelivery(delivery.id, {status: 'delivered'})">Delivered</button>
