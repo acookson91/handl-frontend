@@ -8,6 +8,7 @@ handlApp.controller('usersController', ['ipCookie','$scope', '$state', '$auth',
             email: $scope.registrationForm.email,
             password: $scope.registrationForm.password
           });
+          $state.go('user.deliveries');
         });
 
     };

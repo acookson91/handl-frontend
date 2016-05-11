@@ -1,3 +1,5 @@
+<button id="all-deliveries" ui-sref="user.deliveries">Back to My Deliveries</button>
+
 <form id='delivery-form' >
   Name:<input id="collector-name-input" type="text" ng-model="delivery.sender_name"/>
   Address1:<input id="collection-address1" type="text" ng-model="delivery.pickup_line1"/>
@@ -9,25 +11,21 @@
   Address2:<input id="recipient-address2" type="text" ng-model="delivery.dropoff_line2"/>
   Postcode:<input id="recipient-postcode" type="text" ng-model="delivery.dropoff_postcode"/>
   <button id="submit" ng-click="newDelivery(delivery)" >Submit</button>
-
-
-
-
 </form>
 
 <div id="confirmation" ng-repeat="delivery in deliveries">
-<div> Please Confirm your delivery details </div>
-    <p> Sender Name: {{ delivery.sender_name }} </p>
-    <p> Address line 1: {{ delivery.pickup_line1}} </p>
-    <p> Address line 2: {{ delivery.pickup_line2}} </p>
-    <p> Postcode: {{ delivery.pickup_postcode }} </p>
+  <div> Please Confirm your delivery details </div>
+      <p> Sender Name: {{ delivery.sender_name }} </p>
+      <p> Address line 1: {{ delivery.pickup_line1}} </p>
+      <p> Address line 2: {{ delivery.pickup_line2}} </p>
+      <p> Postcode: {{ delivery.pickup_postcode }} </p>
 
-    <p> DropOff Name: {{ delivery.recipient_name }} </p>
-    <p> Address line 1: {{ delivery.dropoff_line1}} </p>
-    <p> Address line 2: {{ delivery.dropoff_line2}} </p>
-    <p> Postcode: {{ delivery.dropoff_postcode }} </p>
-    <button id="confirm" ng-click="createDelivery(delivery)"> Confirm </button>
-    <div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
+      <p> DropOff Name: {{ delivery.recipient_name }} </p>
+      <p> Address line 1: {{ delivery.dropoff_line1}} </p>
+      <p> Address line 2: {{ delivery.dropoff_line2}} </p>
+      <p> Postcode: {{ delivery.dropoff_postcode }} </p>
+        <button id="confirm" ng-click="createDelivery(delivery)"> Confirm </button>
+      <div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
     <div ng-show="alertMessageFail">Your delivery has NOT been confirmed!</div>
 </div>
 
