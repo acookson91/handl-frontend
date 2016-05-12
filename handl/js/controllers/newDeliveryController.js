@@ -14,7 +14,9 @@ function($scope, uiGmapIsReady, uiGmapGoogleMap, newDeliveryService, deliveriesS
       $scope.form = false;
   };
 
-
+  $scope.editDelivery = function(){
+    $scope.form = true;
+  };
 
   $scope.createDelivery = function(delivery){
     newDeliveryService.create(delivery)

@@ -19,7 +19,7 @@ button {
   border: 0;
   border-style: none;
   width: 100px;
-  height: 100px:  
+  height: 100px:
   display: block;
   padding: 10px;
   color: white;
@@ -35,7 +35,7 @@ button:hover {
   border: 0;
   border-style: none;
   width: 100px;
-  height: 100px:  
+  height: 100px:
   display: block;
   padding: 10px;
   color: #545454;
@@ -52,33 +52,44 @@ button:hover {
   height: 50%
 }
 
-.user-profile, .delivery-details {
+.user-profile, .delivery-details, .details-confirmation {
   background-color: #545454;
   opacity: .95;
   margin-top: 100px;
   width: 100%;
   height: relative;
   padding: 20px;
-  
+
 }
 
 .headers {
   margin-left: 45%;
-  
+
 }
 
 #pickup {
   position: absolute;
-  top: -5%
+  top: -5%;
 }
 
 #dropoff {
-/*   margin-top: 8px; */
   margin-left: 300px;
 }
 
+/* /* /* div div#pickup-confirm {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
+
+div div#dropoff-confirm {
+/*   margin-top: 8px; */
+  position: relative;
+  left: 20%;
+} */ */ */
+
 button#submit {
-  margin-left: 30%;
+  margin-left: 18%;
 }
 
 button#new-delivery{
