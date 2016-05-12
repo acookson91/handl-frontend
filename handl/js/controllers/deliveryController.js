@@ -11,13 +11,16 @@ function($scope, $stateParams, deliveryService, deliveryUpdateService, direction
     });
   };
 
-  $scope.selectDelivery = function(id, params){
-    deliveryUpdateService.update(id, params);
+
+  $scope.selectDelivery = function(id,status, marker, delivery){
+    deliveryUpdateService.update(id, status);
+    $scope.directionsToPickup(marker, delivery);
     _showCollectButton();
   };
 
-  $scope.collectDelivery = function(id,status){
+  $scope.collectDelivery = function(id,status, marker, delivery){
     deliveryUpdateService.update(id, status);
+    $scope.directionsToDropOff(marker, delivery);
     _showDeliveredButton();
   };
 
@@ -38,6 +41,10 @@ function($scope, $stateParams, deliveryService, deliveryUpdateService, direction
 
   $scope.directionsToPickup = function(marker, delivery){
     directionsService.getToPickup(marker, delivery);
+  };
+
+  $scope.directionsToDropOff = function(marker, delivery){
+    directionsService.getToDropOff(marker, delivery);
   };
 
   $scope.findMyLocation();
