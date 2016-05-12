@@ -59,8 +59,17 @@ button:hover {
   width: 100%;
   height: relative;
   padding: 20px;
-
 }
+
+.delivery-details {
+  background-color: #545454;
+  opacity: .95;
+  margin-top: 100px;
+  width: 100%;
+  height: relative;
+  padding: 0px;
+}
+
 
 .headers {
   margin-left: 45%;

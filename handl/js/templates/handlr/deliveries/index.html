@@ -1,7 +1,7 @@
 <h1>Deliveries</h1>
 
 <button id='show-current-position' ng-click="findMyLocation()">Find Me</button>
-<ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom'>
+<ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom' options="options">
   <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
 </ui-gmap-google-map>
 
