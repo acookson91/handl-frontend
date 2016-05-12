@@ -17,13 +17,14 @@ body {
 button {
   margin: 0 auto;
   margin-top: 20px;
+  background-color: #ffaa4d;
   border: 0;
   border-style: none;
   width: 100px;
   height: 100px:
   display: block;
   padding: 10px;
-  color: white;
+  color:  #545454;
   font-family: Magra, sans-serif;
   font-size: 12px;
   opacity: 0.85;
@@ -39,7 +40,7 @@ button:hover {
   height: 100px:
   display: block;
   padding: 10px;
-  color: #545454;
+  color: black;
   font-family: Magra, sans-serif;
   font-size: 12px;
 }
@@ -53,7 +54,13 @@ button:hover {
   height: 50%
 }
 
-.user-profile {
+img {
+  margin-left: 30px;
+  margin-top: 30px;
+  height: 30px;
+}
+
+.user-profile, .delivery-details, .details-confirmation {
   background-color: #545454;
   opacity: .95;
   margin-top: 100px;
@@ -78,20 +85,13 @@ button:hover {
 }
 
 #delivery-form {
-  /*position: absolute;*/
   width: 400px;
   margin: 0;
 }
 
-
 #pickup {
-  /*position: absolute;*/
   width: 400px;
   top: -5%;
-}
-
-#dropoff {
-  /*margin-left: 300px;*/
 }
 
 #comfirm-map {
@@ -123,19 +123,6 @@ button:hover {
   padding: 20px;
   padding-left: 120px !important;
 }
-
-
-/* /* /* div div#pickup-confirm {
-  position: absolute;
-  top: 40%;
-  left: 10%;
-}
-
-div div#dropoff-confirm {
-/*   margin-top: 8px; */
-  position: relative;
-  left: 20%;
-} */ */ */
 
 button#submit {
   margin-left: 18%;
