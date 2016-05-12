@@ -25,7 +25,9 @@
     "angular-route": "^1.5.5",
     "angular-local-storage": "^0.2.7",
     "angular-google-maps": "^2.3.2",
-    "ngGeolocation": "^0.0.8"
+    "ngGeolocation": "^0.0.8",
+    "angular-cookie": "^4.1.0",
+    "angular-cookies": "^1.5.5"
   },
   "resolutions": {
     "angular": ">=1.4 <=1.5.3"
