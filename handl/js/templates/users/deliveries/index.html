@@ -1,16 +1,20 @@
 <h1>Deliveries</h1>
-<a id="new-delivery" ui-sref="deliveries.new">New Delivery</a>
+<button id="new-delivery" ui-sref="user.deliveries-new">New Delivery</button>
 
 <button id='show-current-position' ng-click="findMyLocation()">Find Me</button>
 <ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom'>
   <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
 </ui-gmap-google-map>
 
-<div id='deliveries' ng-repeat="delivery in deliveries | filter: {status: 'pending'} | filter: {user_id: delivery.user.id}">
-  <a id='delivery-link' href="#/deliveries/{{delivery.id}}">
+<div id='deliveries' ng-repeat="delivery in deliveries">
+  <a id='delivery-link' ng-click="displayDirections(delivery)" ui-sref="user.deliveries-id({id: delivery.id})">
+
     {{delivery.sender_name}}:
     {{delivery.pickup_postcode}} -
     {{delivery.dropoff_postcode}}
+
+    {{ delivery.user_id }}
+    {{ delivery.updated_at}}
   </a>
   <button id='show-directions' ng-click="displayDirections(delivery)">Show</button>
 </div>

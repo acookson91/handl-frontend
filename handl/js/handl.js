@@ -10,7 +10,7 @@ var handlApp = angular
   .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('auth:login-success', function() {
       console.log('GREAT SUCCESS');
-      $state.go('deliveries.index');
+      $state.go('user.profile');
     });
   }])
 
@@ -26,44 +26,82 @@ var handlApp = angular
   $stateProvider
     .state('home', {
       url: '/',
+      templateUrl: "/js/templates/home.html",
       controller: 'userSessionsController'
     })
-    .state('sign_up', {
-      url: '/sign_up',
-      templateUrl: "/js/templates/users/new.html",
-      controller: 'usersController'
-    })
-    .state('sign_in', {
-      url: '/sign_in',
+    .state('log-in', {
+      url: '/log_in',
       templateUrl: "/js/templates/user_sessions/new.html",
       controller: 'userSessionsController'
     })
 
-    .state('deliveries', {
-      url: '/deliveries',
-      abstract: true,
-      template: '<ui-view/>',
-      resolve: {
-        auth: function($auth){
-          return $auth.validateUser();
-        }
-      }
+    // .state('profile',{
+    //   url: '/profile',
+    //   templateUrl: '/js/templates/user_sessions/profile.html',
+    //   controller: 'userProfileController'
+    // })
+
+    .state('user_sign_up', {
+      url: '/user/sign_up',
+      templateUrl: "/js/templates/users/new.html",
+      controller: 'usersController'
     })
-      .state('deliveries.new', {
-        url: '/new',
-        templateUrl: '/js/templates/deliveries/new.html',
-        controller: "newDeliveryController"
+      .state('user',{
+        url: '/user',
+        abstract: true,
+        template: '<ui-view>',
+        resolve: {
+          auth: function($auth){
+            return $auth.validateUser();
+          }
+        }
       })
-        .state('deliveries.index',{
-          url:'/',
-          templateUrl: "/js/templates/deliveries/index.html",
+      .state('user.profile',{
+        url: '/profile',
+        templateUrl: '/js/templates/user_sessions/profile.html',
+        controller: 'userProfileController'
+      })
+        .state('user.deliveries',{
+          url:'/deliveries',
+          templateUrl: "/js/templates/users/deliveries/index.html",
           controller: "deliveriesController"
         })
-          .state('deliveries.id', {
-            url: '/:id',
-            templateUrl: '/js/templates/deliveries/show.html',
-            controller: "deliveryController"
-          });
+          .state('user.deliveries-new', {
+            url: '/deliveries/new',
+            templateUrl: '/js/templates/users/deliveries/new.html',
+            controller: "newDeliveryController"
+          })
+              .state('user.deliveries-id', {
+                url: '/deliveries/:id',
+                templateUrl: '/js/templates/users/deliveries/show.html',
+                controller: "deliveryController",
+              })
+
+    .state('handlr_sign_up', {
+      url: '/handlr/sign_up',
+      templateUrl: "/js/templates/handlr/new.html",
+      controller: 'handlrsController'
+    })
+      .state('handlr',{
+        url: '/handlr',
+        abstract: true,
+        template: '<ui-view>',
+        resolve: {
+          auth: function($auth){
+            return $auth.validateUser();
+          }
+        }
+      })
+        .state('handlr.deliveries',{
+          url:'/deliveries',
+          templateUrl: "/js/templates/handlr/deliveries/index.html",
+          controller: "deliveriesController"
+        })
+        .state('handlr.deliveries-id', {
+          url: '/deliveries/:id',
+          templateUrl: '/js/templates/handlr/deliveries/show.html',
+          controller: "deliveryController",
+        });
 
   $urlRouterProvider.otherwise('/');
 

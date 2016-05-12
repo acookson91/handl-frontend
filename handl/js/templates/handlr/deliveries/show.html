@@ -1,4 +1,4 @@
-THIS IS THE DETAAAAIIIILL BITCHES
+HANLDR SHOW
 
 <ui-gmap-google-map center='map.center' zoom='map.zoom'>
   <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
@@ -14,12 +14,14 @@ THIS IS THE DETAAAAIIIILL BITCHES
   {{ delivery.dropoff_line2 }}
   {{ delivery.dropoff_postcode }}
 </ul>
-<a id='return-delivery-list' ui-sref='deliveries.index'><button>Back to Deliveries</button></a>
+
+<button id='return-delivery-list' ui-sref='handlr.deliveries'>Back to Deliveries</button>
 
 <button ng-show='select' ng-click="findMyLocation()">Find Me</button>
 <button ng-show='select' ng-click="directionsToPickup(marker, delivery)">Get Me There</button>
 
 <button ng-show='select' ng-click="displayDirections(delivery)">See Route</button>
-<button id='select-delivery' ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned'}, marker, delivery)">Select Delivery</button>
+
+<button id='select-delivery' ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned', handlr_id: user.id}, marker, delivery)">Select Delivery</button>
 <button id='collect-delivery' ng-show='collected' ng-click="collectDelivery(delivery.id, {status: 'collected'}, marker, delivery)">Collected</button>
 <button id='complete-delivery' ng-show='delivered' ng-click="completeDelivery(delivery.id, {status: 'delivered'})">Delivered</button>

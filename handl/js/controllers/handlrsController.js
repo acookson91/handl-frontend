@@ -1,8 +1,8 @@
-handlApp.controller('usersController', ['ipCookie','$scope', '$state', '$auth',
-  function(ipCookie, $scope, $state, $auth){
+handlApp.controller('handlrsController', ['ipCookie','$scope', '$state', '$auth',
+  function(ipCookie ,$scope, $state, $auth){
 
     $scope.handleRegBtnClick = function() {
-      $scope.registrationForm.handlr_status = false;
+      $scope.registrationForm.handlr_status = true;
       $auth.submitRegistration($scope.registrationForm)
         .then(function() {
           $auth.submitLogin({
@@ -11,6 +11,7 @@ handlApp.controller('usersController', ['ipCookie','$scope', '$state', '$auth',
             password: $scope.registrationForm.password,
             handlr_status: $scope.registrationForm.handlr_status
           });
+          $state.go('handlr.deliveries');
         });
 
     };

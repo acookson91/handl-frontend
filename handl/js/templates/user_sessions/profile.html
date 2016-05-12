@@ -1,0 +1,25 @@
+<h3>Hello {{ user.name }}.</h3>
+
+<p>My Deliveries:
+  <div class="user-deliveries" ng-show='user.handlr_status===false'
+    ng-repeat='delivery in userDeliveries'>
+    <a id='delivery-link' ng-click="displayDirections(delivery)" ui-sref="user.deliveries-id({id: delivery.id})">
+     To: {{ delivery.recipient_name }}
+     at: {{ delivery.dropoff_postcode }}
+     Status: {{ delivery.status }}
+   </a>
+  </div>
+  <div class="handlr-deliveries" ng-show='user.handlr_status===true'
+    ng-repeat='delivery in handlrDeliveries'>
+    <a id='delivery-link' ui-sref="handlr.deliveries-id({id: delivery.id})">
+     To: {{ delivery.recipient_name }}
+     at: {{ delivery.dropoff_postcode }}
+     Status: {{ delivery.status }}
+   </a>
+  </div>
+</p>
+
+
+
+<button ng-show='user.handlr_status===false' ui-sref='user.deliveries-new'>new stuff</button>
+<button ng-show='user.handlr_status===true' ui-sref='handlr.deliveries'>existing stuff</button>
