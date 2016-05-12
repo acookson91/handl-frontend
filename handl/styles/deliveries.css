@@ -23,7 +23,7 @@ button {
   height: 100px:
   display: block;
   padding: 10px;
-  color: white;
+  color:  #545454;
   font-family: Magra, sans-serif;
   font-size: 12px;
   opacity: 0.85;
@@ -39,7 +39,7 @@ button:hover {
   height: 100px:
   display: block;
   padding: 10px;
-  color: #545454;
+  color: black;
   font-family: Magra, sans-serif;
   font-size: 12px;
 }
