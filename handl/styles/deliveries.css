@@ -4,7 +4,7 @@
 body {
   background-color: #545454;
   font-family: Magra, sans-serif;
-
+  margin: 0;
 }
 
 .home {
@@ -52,6 +52,39 @@ button:hover {
   height: 50%
 }
 
+.user-profile, .delivery-details {
+  background-color: #545454;
+  opacity: .95;
+  margin-top: 100px;
+  width: 100%;
+  height: relative;
+  padding: 20px;
+  
+}
+
+.headers {
+  margin-left: 45%;
+  
+}
+
+#pickup {
+  position: absolute;
+  top: -5%
+}
+
+#dropoff {
+/*   margin-top: 8px; */
+  margin-left: 300px;
+}
+
+button#submit {
+  margin-left: 30%;
+}
+
+button#new-delivery{
+  margin-left: 45%;
+}
+
 form{
   position: relative;
   left: 20%;
@@ -68,7 +101,7 @@ h2 {
   position: relative;
   left: 30%;
 }
-button#register, button#log-in{
+button#register, button#log-in {
   position: relative ;
   left: 17%;
 }
