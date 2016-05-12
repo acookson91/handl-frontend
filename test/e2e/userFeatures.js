@@ -22,14 +22,6 @@ describe('handl',function(){
     $('#password-confirmation').sendKeys('password123');
     $('#register').click();
   }
-  function newHandlrSignUp(){
-    $('#handlr-sign-up').click();
-    $('#name').sendKeys('bazza');
-    $('#email').sendKeys('bazza@baz.com');
-    $('#password').sendKeys('password123');
-    $('#password-confirmation').sendKeys('password123');
-    $('#register').click();
-  }
 
   function userSignIn(){
     $('#sign-in').click();
