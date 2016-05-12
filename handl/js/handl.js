@@ -61,11 +61,6 @@ var handlApp = angular
         templateUrl: '/js/templates/user_sessions/profile.html',
         controller: 'userProfileController'
       })
-        .state('user.deliveries',{
-          url:'/deliveries',
-          templateUrl: "/js/templates/users/deliveries/index.html",
-          controller: "deliveriesController"
-        })
           .state('user.deliveries-new', {
             url: '/deliveries/new',
             templateUrl: '/js/templates/users/deliveries/new.html',
