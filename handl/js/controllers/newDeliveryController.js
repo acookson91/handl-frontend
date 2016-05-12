@@ -23,6 +23,7 @@ function($scope, uiGmapIsReady, uiGmapGoogleMap, newDeliveryService, deliveriesS
 
     .success(function(){
       $scope.alertMessage = true;
+      $scope.form = false
     })
     .error(function(){
       $scope.alertMessageFail = true;

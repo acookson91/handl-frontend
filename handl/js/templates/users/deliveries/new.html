@@ -37,10 +37,10 @@
     </div>
     <button id="confirm" ng-click="createDelivery(delivery)"> YESSIR, THAT'S RIGHT. </button>
     <button id='edit' ng-click="editDelivery()" >NOPE THAT'S WRONG.</button>
-    <div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
-    <div ng-show="alertMessageFail">Your delivery has NOT been confirmed!</div>
-</div>
 
+</div>
+<div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
+<div ng-show="alertMessageFail">Your delivery has NOT been confirmed!</div>
 
 <ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom'>
   <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
