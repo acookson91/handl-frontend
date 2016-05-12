@@ -17,6 +17,12 @@ function( uiGmapIsReady, uiGmapGoogleMapApi, $geolocation, deliveriesService){
     _renderDirections(request, deliveryDirectionsService, deliveryDirectionsDisplay);
   };
 
+  this.getToDropOff = function(marker, delivery) {
+    var request = _createRequest(_defineMyLocation(marker), _createDropOffString(delivery));
+    _renderDirections(request, deliveryDirectionsService, deliveryDirectionsDisplay);
+  };
+
+
   function _createRequest(origin, destination){
     return {
       origin: origin,
