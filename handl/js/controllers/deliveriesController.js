@@ -1,9 +1,14 @@
 handlApp.controller('deliveriesController', ['$scope', 'deliveriesService', 'directionsService', 'locationService',
 function($scope, deliveriesService, directionsService, locationService){
 
-  $scope.marker = locationService.marker;
 
+
+  $scope.marker = locationService.marker;
+  $scope.options = locationService.options;
   $scope.map = locationService.map;
+
+
+
 
   $scope.index = function(){
     deliveriesService.all().then(function(response) {

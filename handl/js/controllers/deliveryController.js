@@ -3,6 +3,7 @@ function($scope, $stateParams, deliveryService, deliveryUpdateService, direction
 
   $scope.map = locationService.map;
   $scope.marker = locationService.marker;
+  $scope.options = locationService.options;
 
   $scope.show = function(id){
     deliveryService.find(id).then(function(response){
