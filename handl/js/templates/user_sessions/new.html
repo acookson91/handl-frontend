@@ -1,24 +1,25 @@
-  CREDENTIALS BELOW TO GET TO YOUR ACCOUNT
-<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
- <div class="form-group">
-   <label for="email">Email</label>
-   <input type="email"
-          name="email"
-          id="email"
-          ng-model="loginForm.email"
-          required="required"
-          class="form-control">
- </div>
+<div class='new-user'>
+  <h2>CREDENTIALZZZ</h2>
+    <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+       <input type="email"
+              name="email"
+              id="email"
+              ng-model="loginForm.email"
+              placeholder="Email"
+              required="required"
+              class="form-control">
 
- <div class="form-group">
-   <label for="password">Password</label>
-   <input type="password"
-          name="password"
-          id="password"
-          ng-model="loginForm.password"
-          required="required"
-          class="form-control">
- </div>
+       <input type="password"
+              name="password"
+              id="password"
+              ng-model="loginForm.password"
+              placeholder="Password"
+              required="required"
+              class="form-control">
 
-<button type="submit" id='log-in' class="btn btn-primary btn-lg" >Sign in</button>
-</form>
+
+      <p><button type="submit" id='log-in' class="btn btn-primary btn-lg" >Sign in</button></p>
+      <p><button id='log-in' ui-sref='home'>WHOOPS. I DON'T GOTS CREDS YET.</button> </p>
+    </form>
+
+</div>

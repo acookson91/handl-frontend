@@ -68,7 +68,7 @@ h2 {
   position: relative;
   left: 30%;
 }
-button#register{
+button#register, button#log-in{
   position: relative ;
   left: 17%;
 }
