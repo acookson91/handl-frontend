@@ -1,6 +1,6 @@
 <button id="all-deliveries" ui-sref="user.profile">Back to My Profile</button>
 <div class="delivery-details">
-<form id='delivery-form' >
+<form ng-show='form' id='delivery-form' >
   <div id='pickup'>
     <p>SENDER (YOU)</P>
     <p><input id="collector-name-input"  placeholder="Your Name!" type="text" ng-model="delivery.sender_name"/></p>
@@ -20,7 +20,7 @@
 <p><button id="submit" ng-click="newDelivery(delivery)" >Submit</button>
 </form>
 
-<div id="confirmation" ng-repeat="delivery in deliveries">
+<div id="confirmation" ng-hide='form' ng-repeat="delivery in deliveries">
   <div> Please Confirm your delivery details </div>
       <p> Sender Name: {{ delivery.sender_name }} </p>
       <p> Address line 1: {{ delivery.pickup_line1}} </p>

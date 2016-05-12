@@ -4,13 +4,14 @@ function($scope, uiGmapIsReady, uiGmapGoogleMap, newDeliveryService, deliveriesS
   $scope.deliveries = [];
   $scope.alertMessage = false;
   $scope.alertMessageFail = false;
-
+  $scope.form = true;
 
 
   $scope.newDelivery = function(delivery){
     $scope.deliveries = [];
     $scope.deliveries.push(delivery);
     $scope.displayDirections(delivery);
+      $scope.form = false;
   };
 
 
