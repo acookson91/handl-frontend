@@ -1,47 +1,41 @@
-  HEY HANDLRRRR
-<form ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
-  <div class="form-group">
-    <label for="name">Name</label>
+<div class='new-user'>
+  <h2>YO HANDLRR</h2>
+  <form ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
     <input type="text"
            name="name"
            id="name"
+           placeholder="Name"
            ng-model="registrationForm.name"
            required="required"
            class="form-control"/>
-  </div>
 
-  <div class="form-group">
-    <label for="email">Email</label>
     <input type="email"
            name="email"
            id="email"
+           placeholder="Email"
            ng-model="registrationForm.email"
            required="required"
            class="form-control"/>
-  </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
     <input type="password"
            name="password"
            id="password"
+           placeholder="Password"
            ng-model="registrationForm.password"
            required="required"
            class="form-control"/>
-  </div>
 
-  <div class="form-group">
-    <label for="password_confirmation">Password confirmation</label>
     <input type="password"
            name="password_confirmation"
            id="password_confirmation"
+           placeholder="Confirm Password"
            ng-model="registrationForm.password_confirmation"
            required="required"
            class="form-control"/>
-  </div>
 
-  <button type="submit" id='register' class="btn btn-primary btn-lg" ng-click="findMyLocation()">Register</button>
-</form>
+    <p><button type="submit" id='register' class="btn btn-primary btn-lg" ng-click="findMyLocation()">Register</button></p>
+  </form>
 
-<button id='home' ui-sref='user_sign_up'>CHANGED MY MIND. WANNA BE A USER</button>
-<button id='home' ui-sref='log-in'>WAIT. GOT AN ACCOUNT. LOG ME IN.</button>
+  <button id='home' ui-sref='user_sign_up'>CHANGED MY MIND. WANNA BE A USER</button>
+  <button id='home' ui-sref='log-in'>WAIT. GOT AN ACCOUNT. LOG ME IN.</button>
+</div>

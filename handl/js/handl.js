@@ -34,13 +34,6 @@ var handlApp = angular
       templateUrl: "/js/templates/user_sessions/new.html",
       controller: 'userSessionsController'
     })
-
-    // .state('profile',{
-    //   url: '/profile',
-    //   templateUrl: '/js/templates/user_sessions/profile.html',
-    //   controller: 'userProfileController'
-    // })
-
     .state('user_sign_up', {
       url: '/user/sign_up',
       templateUrl: "/js/templates/users/new.html",
