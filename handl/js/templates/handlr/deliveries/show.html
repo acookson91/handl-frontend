@@ -1,46 +1,37 @@
-
-
 <link rel='stylesheet' type='text/css' href='styles/deliveries_new.css'></link>
-
-
-
 <button id="all-deliveries" ui-sref="user.profile">Back to My Profile</button>
-HANLDR SHOW
+  <div class="delivery-details">
+    <div id='delivery-info'>
+      <h1>Deliveries</h1>
+      <ul>
+      {{ delivery.sender_name }}
+      {{ delivery.pickup_line1 }}
+      {{ delivery.pickup_line2 }}
+      {{ delivery.pickup_postcode }}
+      {{ delivery.recipient_name }}
+      {{ delivery.dropoff_line1 }}
+      {{ delivery.dropoff_line2 }}
+      {{ delivery.dropoff_postcode }}
+    </ul>
+      <div id="delivery-buttons">
+        <button id='return-delivery-list' ui-sref='handlr.deliveries'>Back to Deliveries</button>
 
-<div class="delivery-details">
+        <button ng-show='select' ng-click="findMyLocation()">Find Me</button>
+        <button ng-show='select' ng-click="directionsToPickup(marker, delivery)">Get Me There</button>
 
-  <div id='delivery-info'>
-    <h1>Deliveries</h1>
+        <button ng-show='select' ng-click="displayDirections(delivery)">See Route</button>
 
-    <ul>
-    {{ delivery.sender_name }}
-    {{ delivery.pickup_line1 }}
-    {{ delivery.pickup_line2 }}
-    {{ delivery.pickup_postcode }}
-    {{ delivery.recipient_name }}
-    {{ delivery.dropoff_line1 }}
-    {{ delivery.dropoff_line2 }}
-    {{ delivery.dropoff_postcode }}
-  </ul>
-    <div id="delivery-buttons">
-      <button id='return-delivery-list' ui-sref='handlr.deliveries'>Back to Deliveries</button>
-
-      <button ng-show='select' ng-click="findMyLocation()">Find Me</button>
-      <button ng-show='select' ng-click="directionsToPickup(marker, delivery)">Get Me There</button>
-
-      <button ng-show='select' ng-click="displayDirections(delivery)">See Route</button>
-
-      <button id='select-delivery' style="font-size:16px; color: #000; font-weight:bold; margin-top: 25px; height: 60px;" ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned', handlr_id: user.id}, marker, delivery)">Select Delivery</button>
-      <button id='collect-delivery' style="font-size:16px; color: #000; font-weight:bold; margin-top: 25px; height: 60px;" ng-show='collected' ng-click="collectDelivery(delivery.id, {status: 'collected'}, marker, delivery)">Collected</button>
-      <button id='complete-delivery' style="font-size:16px; color: #000; font-weight:bold; margin-top: 25px; height: 60px;" ng-show='delivered' ng-click="completeDelivery(delivery.id, {status: 'delivered'})">Delivered</button>
+        <button id='select-delivery' style="font-size:16px; color: #000; font-weight:bold; margin-top: 25px; height: 60px;" ng-show='select' ng-click="selectDelivery(delivery.id, {status: 'assigned', handlr_id: user.id}, marker, delivery)">Select Delivery</button>
+        <button id='collect-delivery' style="font-size:16px; color: #000; font-weight:bold; margin-top: 25px; height: 60px;" ng-show='collected' ng-click="collectDelivery(delivery.id, {status: 'collected'}, marker, delivery)">Collected</button>
+        <button id='complete-delivery' style="font-size:16px; color: #000; font-weight:bold; margin-top: 25px; height: 60px;" ng-show='delivered' ng-click="completeDelivery(delivery.id, {status: 'delivered'})">Delivered</button>
+      </div>
     </div>
-  </div>
 
-  <div id="newDeliveryMap">
-    <button id='show-current-position' ng-click="findMyLocation()">Find Me</button>
-    <ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom' options="options">
-      <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
-    </ui-gmap-google-map>
-  </div>
+    <div id="newDeliveryMap">
+      <button id='show-current-position' ng-click="findMyLocation()">Find Me</button>
+      <ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom' options="options">
+        <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
+      </ui-gmap-google-map>
+    </div>
 
 </div>

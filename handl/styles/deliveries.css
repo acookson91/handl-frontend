@@ -71,7 +71,7 @@ img {
 }
 
 .headers {
-  margin-left: 45%;
+  margin-left: 40%;
 
 }
 
@@ -89,6 +89,10 @@ button#submit {
 }
 
 button#new-delivery{
+  margin-left: 45%;
+}
+
+button#available-deliveries {
   margin-left: 45%;
 }
 
@@ -127,6 +131,7 @@ span {
   padding: 15px;
 }
 #delivery-link:visited{
+  text-decoration: none;
   color: black;
 }
 
@@ -140,6 +145,7 @@ hr {
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(186, 186, 186), rgba(0, 0, 0, 0));
 }
+
 .user-deliveries{
   margin; 0 auto;
 }
