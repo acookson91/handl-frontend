@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
         <link rel='stylesheet' type='text/css' href='styles/reset.css'></link>
-    <link rel='stylesheet' type='text/css' href='styles/deliveries.css'></link>
+    <!-- <link rel='stylesheet' type='text/css' href='styles/deliveries.css'></link> -->
     <link href='https://fonts.googleapis.com/css?family=Magra:400,700' rel='stylesheet' type='text/css'>
     <video muted autoplay loop  id="bgvid">
         <source src="styles/cycling.mp4" type="video/mp4">
     </video>
+    <img style='margin-left: 44%; margin-top: 10%; height: 50px;' src="/styles/handlr.png">
     <!--  scripts -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-cookie/angular-cookie.js"></script>
@@ -45,8 +46,7 @@
     <base href="/">
   </head>
   <body lang="en" ng-app="handlApp">
-    <p><img src="/styles/handlr.png"></p>
-    <p><button id='sign-out' ng-show="user.id" ng-click='signOut()' ui-sref='home'>Sign out</button></p>
+    <button id='sign-out' style='position: absolute; right: 0px; top: 70px;' ng-show="user.id" ng-click='signOut()' ui-sref='home'>Sign out</button>
     <div ui-view></div>
 
   </body>

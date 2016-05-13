@@ -1,3 +1,6 @@
+<link rel='stylesheet' type='text/css' href='styles/deliveries.css'></link>
+
+
 <div class="user-profile">
   <div class="headers">
     <h3 id='greet'>Hello {{ user.name }}.</h3>
@@ -8,22 +11,23 @@
   <div class="user-deliveries" ng-show='user.handlr_status===false'
     ng-repeat='delivery in userDeliveries'>
     <a id='delivery-link' ng-click="displayDirections(delivery)" ui-sref="user.deliveries-id({id: delivery.id})">
-     To: {{ delivery.recipient_name }} | <span>{{ delivery.status }}</span>
+     To: {{ delivery.recipient_name }}
+     at: {{ delivery.dropoff_postcode }}
+     Status: {{ delivery.status }}
    </a>
-   <hr>
   </div>
   <div class="handlr-deliveries" ng-show='user.handlr_status===true'
     ng-repeat='delivery in handlrDeliveries'>
     <a id='delivery-link' ng-click="displayDirections(delivery)" ui-sref="handlr.deliveries-id({id: delivery.id})">
-     From: {{ delivery.sender_name }} |
-     To: {{ delivery.recipient_name}}
+     To: {{ delivery.recipient_name }}
+     at: {{ delivery.dropoff_postcode }}
+     Status: {{ delivery.status }}
    </a>
-   <hr>
   </div>
 </p>
 
 
 
 <button id='new-delivery' ng-show='user.handlr_status===false' ui-sref='user.deliveries-new'>I WANNA SEND SOMETHING TO SOMEONE.</button>
-<button id='available-deliveries' ng-show='user.handlr_status===true' ui-sref='handlr.deliveries'> SHOW ME AVAILABLE DELIVERY REQUESTS</button>
+<button id='available-deliveries' ng-show='user.handlr_status===true' ui-sref='handlr.deliveries'>existing stuff</button>
 </div>

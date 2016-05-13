@@ -1,18 +1,26 @@
-<button id='profile' ui-sref='user.profile'>Back to Profile</button>
-<div class='delivery-details2'>
-<h1>Deliveries</h1>
+<link rel='stylesheet' type='text/css' href='styles/deliveries_new.css'></link>
 
-  <div id='deliveries' ng-repeat="delivery in deliveries | filter: {status: 'pending'}">
-    <a id='delivery-link' ui-sref="handlr.deliveries-id({id: delivery.id})">
-      {{delivery.sender_name}}:
-      {{delivery.pickup_postcode}} -
-      {{delivery.dropoff_postcode}}
-    </a>
-    <button id='show-directions' ng-click="displayDirections(delivery)">Show</button>
+
+
+<button id="all-deliveries" ui-sref="user.profile">Back to My Profile</button>
+
+
+<div class="delivery-details">
+
+  <div id='delivery-info'>
+    <h1>Deliveries</h1>
+
+      <div id='deliveries' ng-repeat="delivery in deliveries | filter: {status: 'pending'}">
+        <a id='delivery-link' ui-sref="handlr.deliveries-id({id: delivery.id})">
+          <b>{{delivery.sender_name}}:</b>
+          <b>{{delivery.pickup_postcode}} -</b>
+          <b>{{delivery.dropoff_postcode}}</b>
+        </a>
+        <button id='show-directions' ng-click="displayDirections(delivery)">Show</button>
+      </div>
   </div>
 
-
-  <div id='newDeliveryMap'>
+  <div id="newDeliveryMap">
     <button id='show-current-position' ng-click="findMyLocation()">Find Me</button>
     <ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom' options="options">
       <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
