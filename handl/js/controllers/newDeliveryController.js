@@ -33,6 +33,7 @@ function($scope, uiGmapIsReady, uiGmapGoogleMap, newDeliveryService, deliveriesS
 
   $scope.map = locationService.map;
   $scope.marker = locationService.marker;
+  $scope.options = locationService.options;
 
 
   $scope.displayDirections = function(delivery) {
