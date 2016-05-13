@@ -1,6 +1,6 @@
 .angular-google-map-container {
   width: 700px;
-  height: 600px;
+  height: 100%;
 }
 body {
   background-color: #545454;
@@ -174,10 +174,4 @@ video#bgvid {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
-}
-
-#nav {
-  background-color: none;
-  height: 150px;
-  margin-top: -60px;
 }

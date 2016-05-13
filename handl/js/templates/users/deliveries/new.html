@@ -1,50 +1,55 @@
-<div id='nav'>
-  <button id="all-deliveries" ui-sref="user.profile">Back to My Profile</button>
-</div>
+<link rel='stylesheet' type='text/css' href='styles/deliveries_new.css'></link>
+
+
+
+<button id="all-deliveries" ui-sref="user.profile">Back to My Profile</button>
+
 
 <div class="delivery-details">
 
-  <form ng-show='form' id='delivery-form' >
-    <div id='pickup'>
-      <p>SENDER (YOU)</P>
-      <p><input id="collector-name-input"  placeholder="Your Name!" type="text" ng-model="delivery.sender_name"/></p>
-      <p>PICKUP ADDRESS:</p>
-      <p><input id="collection-address1" placeholder="Line 1" type="text" ng-model="delivery.pickup_line1"/></p>
-      <p><input id="collection-address2" placeholder="Line 2" type="text" ng-model="delivery.pickup_line2"/></p>
-      <p><input id="collection-postcode" placeholder="Postcode" type="text" ng-model="delivery.pickup_postcode"/></p>
-    </div>
-    <div id='dropoff'>
-      <p>RECIPIENT</p>
-      <p><input id="recipient-name-input" placeholder="Recipient Name" type="text" ng-model="delivery.recipient_name"/></p>
-      <p>DROPOFF ADDRESS:</p>
-      <p><input id="recipient-address1" placeholder="Line 1" type="text" ng-model="delivery.dropoff_line1"/></p>
-      <p><input id="recipient-address2" placehoder="Line 2" type="text" ng-model="delivery.dropoff_line2"/></p>
-      <p><input id="recipient-postcode" placehoder="Postcode" type="text" ng-model="delivery.dropoff_postcode"/></p>
-    </div>
-  <p><button id="submit" ng-click="newDelivery(delivery)" >Submit</button>
-  </form>
+  <div id='delivery-info'>
+    <form ng-show='form' id='delivery-form' >
+      <div id='pickup'>
+        <span class='title' >SENDER (YOU)</span>
+        <input id="collector-name-input"  placeholder="Your Name!" type="text" ng-model="delivery.sender_name"/><br>
+        <span class='title' >PICKUP ADDRESS:<br></span>
+        <input id="collection-address1" placeholder="Line 1" type="text" ng-model="delivery.pickup_line1"/>
+        <input id="collection-address2" placeholder="Line 2" type="text" ng-model="delivery.pickup_line2"/>
+        <input id="collection-postcode" placeholder="Postcode" type="text" ng-model="delivery.pickup_postcode"/>
+      </div>
+      <div id='dropoff'><br>
+        <span class='title' >RECIPIENT<br></span>
+        <input id="recipient-name-input" placeholder="Recipient Name" type="text" ng-model="delivery.recipient_name"/><br>
+        <span class='title' >DROPOFF ADDRESS:<br></span>
 
-  <div id='confirm-map' ng-hide='form'>
-    <div class='details-confirmation' ng-repeat="delivery in deliveries">
-      <h3>ARE THESE DETAILS CORRECT?</h3>
+        <input id="recipient-address1" placeholder="Line 1" type="text" ng-model="delivery.dropoff_line1"/>
 
-        <div id='pickup-confirm'>
-          <p> Sender Name: <b>{{ delivery.sender_name }}</b> </p>
-          <p> Address line 1: <b>{{ delivery.pickup_line1}}</b> </p>
-          <p> Address line 2: <b>{{ delivery.pickup_line2}}</b> </p>
-          <p> Postcode: <b>{{ delivery.pickup_postcode }}</b> </p>
-        </div>
+        <input id="recipient-address2" placeholder="Line 2" type="text" ng-model="delivery.dropoff_line2"/>
+        <input id="recipient-postcode" placeholder="Postcode" type="text" ng-model="delivery.dropoff_postcode"/>
+      </div>
+    <p><button id="submit" ng-click="newDelivery(delivery)" >Submit</button>
+    </form>
 
-        <div id='dropoff-confirm'>
-          <p> DropOff Name: <b>{{ delivery.recipient_name }}</b> </p>
-          <p> Address line 1: <b>{{ delivery.dropoff_line1}}</b> </p>
-          <p> Address line 2: <b>{{ delivery.dropoff_line2}}</b> </p>
-          <p> Postcode: <b>{{ delivery.dropoff_postcode }}</b> </p>
-        </div>
-        <button id="confirm" ng-click="createDelivery(delivery)"> YESSIR, THAT'S RIGHT. </button>
-        <button id='edit' ng-click="editDelivery()" >NOPE THAT'S WRONG.</button>
-        <div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
-        <div ng-show="alertMessageFail">Your delivery has NOT been confirmed!</div>
+
+    <div id='confirm-details' ng-hide='form'>
+      <div class='details-confirmation' ng-repeat="delivery in deliveries">
+        <h3>ARE THESE DETAILS CORRECT?</h3>
+
+
+            <p> Sender Name: <b>{{ delivery.sender_name }}</b> </p>
+            <p> Address line 1: <b>{{ delivery.pickup_line1}}</b> </p>
+            <p> Address line 2: <b>{{ delivery.pickup_line2}}</b> </p>
+            <p> Postcode: <b>{{ delivery.pickup_postcode }}</b> </p>
+            <p> DropOff Name: <b>{{ delivery.recipient_name }}</b> </p>
+            <p> Address line 1: <b>{{ delivery.dropoff_line1}}</b> </p>
+            <p> Address line 2: <b>{{ delivery.dropoff_line2}}</b> </p>
+            <p> Postcode: <b>{{ delivery.dropoff_postcode }}</b> </p>
+
+          <button id="confirm" ng-click="createDelivery(delivery)"> YESSIR, THAT'S RIGHT. </button>
+          <button id='edit' ng-click="editDelivery()" >NOPE THAT'S WRONG.</button>
+          <div id="successMessage" ng-show="alertMessage">Your delivery has been confirmed!</div>
+          <div ng-show="alertMessageFail">Your delivery has NOT been confirmed!</div>
+      </div>
     </div>
   </div>
 
@@ -52,5 +57,6 @@
     <ui-gmap-google-map ng-init="init()" center='map.center' zoom='map.zoom' options="options">
       <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
     </ui-gmap-google-map>
-    </div>
+  </div>
+
 </div>
