@@ -4,11 +4,11 @@
     <div id='delivery-info'>
       <h1>Deliveries</h1>
       <ul>
-      {{ delivery.sender_name }}
+      <b>From: </b> {{ delivery.sender_name }}
       {{ delivery.pickup_line1 }}
       {{ delivery.pickup_line2 }}
-      {{ delivery.pickup_postcode }}
-      {{ delivery.recipient_name }}
+      {{ delivery.pickup_postcode }}<br>
+      <b>To: </b> {{ delivery.recipient_name }}
       {{ delivery.dropoff_line1 }}
       {{ delivery.dropoff_line2 }}
       {{ delivery.dropoff_postcode }}

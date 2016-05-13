@@ -81,10 +81,14 @@ li {
 #delivery-info {
   position: absolute;
   width: 400px;
-  left: 30px;
+  left: 20px;
+  margin-top: -7px;
 }
 
-#delivery-form, #delivery-info {
+#delivery-info ul {
+  margin-left: -35px;
+}
+#delivery-form {
   margin-top: 20px;
 }
 
