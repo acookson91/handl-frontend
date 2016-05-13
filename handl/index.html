@@ -8,7 +8,6 @@
     <video muted autoplay loop  id="bgvid">
         <source src="styles/cycling.mp4" type="video/mp4">
     </video>
-    <img src="/styles/handlr.png">
     <!--  scripts -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-cookie/angular-cookie.js"></script>
@@ -46,7 +45,8 @@
     <base href="/">
   </head>
   <body lang="en" ng-app="handlApp">
-    <button id='sign-out' ng-show="user.id" ng-click='signOut()' ui-sref='home'>Sign out</button>
+    <p><img src="/styles/handlr.png"></p>
+    <p><button id='sign-out' ng-show="user.id" ng-click='signOut()' ui-sref='home'>Sign out</button></p>
     <div ui-view></div>
 
   </body>

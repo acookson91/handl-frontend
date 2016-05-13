@@ -10,7 +10,7 @@ body {
 
 .home {
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 100px;
   width: 100px;
 }
 
@@ -24,7 +24,7 @@ button {
   height: 100px:
   display: block;
   padding: 10px;
-  color:  #545454;
+  color: #545454;
   font-family: Magra, sans-serif;
   font-size: 12px;
   opacity: 0.85;
@@ -40,7 +40,7 @@ button:hover {
   height: 100px:
   display: block;
   padding: 10px;
-  color: black;
+  color:  black;
   font-family: Magra, sans-serif;
   font-size: 12px;
 }
@@ -55,9 +55,10 @@ button:hover {
 }
 
 img {
-  margin-left: 30px;
-  margin-top: 30px;
-  height: 30px;
+  margin-left: 43%;
+  margin-top: 10%;
+
+  height: 50px;
 }
 
 .user-profile, .delivery-details, .details-confirmation {
@@ -159,6 +160,33 @@ button#home{
   position: relative ;
   left: 22%;
 }
+span {
+  color: #BABABA;
+}
+
+#delivery-link{
+  margin-left: 42%;
+  text-decoration: none;
+  padding: 15px;
+}
+#delivery-link:visited{
+  color: black;
+}
+
+#delivery-link:hover{
+  text-decoration: none;
+  color: #BABABA;
+}
+
+hr {
+  border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(186, 186, 186), rgba(0, 0, 0, 0));
+}
+.user-deliveries{
+  margin; 0 auto;
+}
+
 
 video#bgvid {
     position: fixed;
