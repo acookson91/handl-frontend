@@ -10,7 +10,17 @@ Using Angular also allowed us to intergrate google maps updating routes on the m
 
 Below are some of our design steps and future innovation.
 
-## Understand
+## ScreenShots
+
+Signup Page 
+![Signup Page](http://i.imgur.com/loZblvA.png =100x20 "Signup Page")
+![Signup Page](http://i.imgur.com/zvgBSvs.jpg "Signup Page" | width=800)
+![Signup Page](http://i.imgur.com/uHCkJ10.jpg "Signup Page" | width=800)
+![Signup Page](http://i.imgur.com/SOwzQvn.jpg "Signup Page" | width=800)
+![Signup Page](http://i.imgur.com/E4et9ri.jpg "Signup Page" | width=800)
+
+
+## What were trying to solve
 
 Problem: Difficult to instantly deliver a parcel (central london)
 
@@ -18,14 +28,14 @@ Objective: To create an instant, paperless delivery service.
 
 ## MVP Requirements
 
-#### CUSTOMER:
+CUSTOMER:
 
 create a delivery
 name
 pick-up address
 drop-off address
 
-#### COURIER:
+COURIER:
 
 list all possible delivery requests
 select a delivery
