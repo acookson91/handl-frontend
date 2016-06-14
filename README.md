@@ -1,65 +1,44 @@
-# handl
+# handl-frontend
 
-Find out how couriers work – head office?
-Parcel delivery – cut out the middle man.
+Handl is here to take the hastle out of sending parcels in the London area. Customers are able to input the pick-up and drop-off addresses and view the delivery route prior to confirmation.
 
-*Possible customers*
+Once confirmed the new delivery shows in the riders home screen. Riders can select which parcel they would like to pick up. They can see the details of all dliveries and identify which is closest and how to get to all of the pickup points. Once collected the app will direct the rider to the parcels final destination.
 
-Offices – legal trade – quick documentation sent out in physical form
+This is the repo for the frontend of the app. This is built using Angularjs, allowing us to connect to api's, updating information throughout the customer journey without refreshing the page. 
 
-Deliver packed lunch if it's forgotten
+Using Angular also allowed us to intergrate google maps updating routes on the map and geolocating all on the same page with no reload. 
 
-Post office delivery?
-
-*Slimming down:*
-
-Paypal?
-
-Much like the uber model, for quick payment – invoice generation, log, rating, speed, efficiency, community.
-
-*Nice to have*
-QR code confirmation
-bidding system
-by proximity
-by time
-online payment
-courier rating
-customer rating
-track package
+Below are some of our design steps and future innovation.
 
 ## Understand
+
 Problem: Difficult to instantly deliver a parcel (central london)
 
 Objective: To create an instant, paperless delivery service.
 
-## MVP
-CUSTOMER:
-  - create a delivery
-    - name
-    - pick-up address
-    - drop-off address
+## MVP Requirements
 
-COURIER:
-- list all possible delivery requests
-  - select a delivery
-  - confirm selection
+#### CUSTOMER:
 
------------------------
-Setup
-`node -v` if no version number, run `brew install node`
-`npm init`
-`npm install bower -g --save-dev`
-`bower init`
-`bower install angular --save`
-`npm install karma --save-dev`
-`npm install karma-jasmine karma-chrome-launcher --save-dev`
-`npm install jasmine-core --save-dev`
-`npm install -g karma-cli`
-`bower install angular-mocks --save-dev`
+create a delivery
+name
+pick-up address
+drop-off address
 
-To run after cloning:
-`bower install` 
+#### COURIER:
 
-`npm install -g protractor` - ?
+list all possible delivery requests
+select a delivery
+confirm selection
 
+## Future improvements:
 
+implement Paypal, much like the uber model, for quick payment – invoice generation, log, rating, speed, efficiency, community.
+
+Have QR code confirmation emails that the courier needs to scan
+
+Bidding system by proximity by time
+
+Courier rating 
+
+Customer rating track package
