@@ -12,19 +12,26 @@ Below are some of our design steps and future innovation.
 
 ## ScreenShots
 
-Signup Page 
-![Signup Page](http://i.imgur.com/loZblvA.png =100x20 "Signup Page")
-![Signup Page](http://i.imgur.com/zvgBSvs.jpg "Signup Page" | width=800)
-![Signup Page](http://i.imgur.com/uHCkJ10.jpg "Signup Page" | width=800)
-![Signup Page](http://i.imgur.com/SOwzQvn.jpg "Signup Page" | width=800)
-![Signup Page](http://i.imgur.com/E4et9ri.jpg "Signup Page" | width=800)
+Customer Signup
 
+<img src="http://i.imgur.com/loZblvA.jpg"  width="530" >
 
-## What were trying to solve
+Request Delivery
 
-Problem: Difficult to instantly deliver a parcel (central london)
+<img src="http://i.imgur.com/zvgBSvs.jpg"  width="530" >
 
-Objective: To create an instant, paperless delivery service.
+Check Delivery
+
+<img src="http://i.imgur.com/uHCkJ10.jpg"  width="530" >
+
+Courier Signin
+
+<img src="http://i.imgur.com/SOwzQvn.jpg"  width="530" >
+
+Courier check/accept Delivery
+
+<img src="http://i.imgur.com/E4et9ri.jpg"  width="530" >
+
 
 ## MVP Requirements
 
@@ -43,12 +50,6 @@ confirm selection
 
 ## Future improvements:
 
-implement Paypal, much like the uber model, for quick payment – invoice generation, log, rating, speed, efficiency, community.
+implement Paypal, much like the uber model, for quick payment – invoice generation, log, rating, speed, efficiency, community. Have QR code confirmation emails that the courier needs to scan when they pick up the parcel. Bidding system by proximity by time, so parcels are collected by the closest driver.
 
-Have QR code confirmation emails that the courier needs to scan
-
-Bidding system by proximity by time
-
-Courier rating 
-
-Customer rating track package
+Once the driver has scaned the QA code we would then like the user to instantly recieve an email requesting a delivery rating rating 
