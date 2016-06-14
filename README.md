@@ -12,7 +12,7 @@ Using Angular also allowed us to intergrate google maps updating routes on the m
 
 Below are some of our design steps and future innovation.
 
-## ScreenShots
+## Screenshots
 
 Customer Signup
 
